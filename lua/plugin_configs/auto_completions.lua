@@ -72,13 +72,8 @@ return {
 						module = "blink.compat.source",
 						min_keyword_length = 5,
 					},
-					cmdline = {
-						enabled = false,
-					},
 				},
 			},
-
-			-- cmdline = {},
 
 			signature = { enabled = true },
 
