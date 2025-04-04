@@ -8,27 +8,16 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
+
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"bydlw98/cmp-env",
 			common_deps["mini_icons"],
 		},
+
 		version = "*",
-		-- Disable for some filetypes
 
-		-- enabled = function()
-		-- 	return vim.bo.filetype ~= "DressingInput"
-		-- end,
-
-		-- enabled = function()
-		-- 	return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt" and
-		-- 	vim.b.completion ~= false
-		-- end,
-
-		enabled = function()
-			local disabled_filetypes = { "lua", "DressingInput" }
-			return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
-		end,
+		-- Can't use the "enabled = function() .. end," logic to enable plugin based on the filetype, even though the documentation says you can. Trust me, I've tried
 
 		opts = {
 			keymap = {
