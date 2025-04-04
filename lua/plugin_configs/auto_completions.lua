@@ -10,7 +10,6 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"mtoohey31/cmp-fish",
 			"bydlw98/cmp-env",
 			common_deps["mini_icons"],
 		},
@@ -55,17 +54,13 @@ return {
 					elseif vim.bo.filetype == "markdown" then
 						return { "buffer", "path", "snippets", "env" }
 					else
-						return { "path", "snippets", "env", "lsp", "fish" }
+						return { "path", "snippets", "env", "lsp" }
 					end
 				end,
 
 				providers = {
 					buffer = {
 						min_keyword_length = 5,
-					},
-					fish = {
-						name = "fish",
-						module = "blink.compat.source",
 					},
 					env = {
 						name = "env",
