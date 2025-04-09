@@ -12,7 +12,7 @@ return {
 
 			null_ls.setup({
 				sources = {
-					formatting.stylua,
+					formatting.stylua.with({ extra_args = { "--respect-ignores" } }),
 				},
 			})
 		end,
