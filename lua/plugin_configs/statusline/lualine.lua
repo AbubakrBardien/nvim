@@ -32,8 +32,10 @@ return {
 			options = {
 				globalstatus = true,
 				theme = custom_theme,
-				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
 				always_divide_middle = false,
+
+				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
+				disabled_filetypes = { "dashboard" },
 
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
