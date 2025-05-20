@@ -8,13 +8,15 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			local formatting = null_ls.builtins.formatting
-			-- local diagnostics = null_ls.builtins.diagnostics
+			local diagnostics = null_ls.builtins.diagnostics
 
-			null_ls.setup({
+			null_ls.setup {
 				sources = {
 					formatting.stylua.with({ extra_args = { "--respect-ignores" } }),
+					formatting.shfmt,
+					diagnostics.shellcheck,
 				},
-			})
+			}
 		end,
 	},
 	{
@@ -26,9 +28,7 @@ return {
 			"nvimtools/none-ls.nvim",
 		},
 		config = function()
-			require("mason-null-ls").setup({
-				ensure_installed = { "shellcheck", "shfmt" },
-			})
+			require("mason-null-ls").setup({ automatic_installation = true })
 		end,
 	},
 }
