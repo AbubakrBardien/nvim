@@ -38,10 +38,6 @@ return {
 					lspconfig[lsp].setup { -- "clang-tidy" is the built-in linter
 						cmd = { "clangd", "--offset-encoding=utf-16", "--clang-tidy" },
 					}
-					-- elseif lsp == "bashls" then
-					-- 	lspconfig[lsp].setup {
-					-- 		filetypes = { "sh", "zsh" }, -- not ideal, but best solution for Zsh support so far
-					-- }
 				else
 					lspconfig[lsp].setup {}
 				end
