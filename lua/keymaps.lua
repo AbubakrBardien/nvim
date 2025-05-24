@@ -108,9 +108,6 @@ map("n", "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
 ------ Colorizer ------
 map("n", "<leader>cr", ":ColorizerReloadAllBuffers<CR>", { desc = "Reload Colorizer plugin" })
 
------- Trailspace ------
-map("n", "<leader>tr", ":=MiniTrailspace.trim()<CR>", { desc = "Remove Trailing Whitespace" })
-
 ------ Other ------
 map("n", "<C-s>",     ":w<CR>",        { desc = "Save File" })
 map("n", ";",         ":",             { desc = "Enter Command Mode" })
