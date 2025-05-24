@@ -38,7 +38,7 @@ map("n", "grr",	           telescope_builtins.lsp_references, { desc = "Find Ref
 map("n", "gdc",	           vim.lsp.buf.declaration,	          { desc = "Go to Declaration" })
 map("n", "gi",             vim.lsp.buf.implementation,        { desc = "Go to Implementation" })
 
--- Auto-completion keymaps are in the "plugin_configs/auto_completions.lua" file
+-- Auto-completion keymaps are in the "plugin_configs/blink_cmp.lua" file
 
 ------ Debugger ------
 local dap = require("dap")

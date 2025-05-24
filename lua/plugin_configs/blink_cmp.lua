@@ -1,5 +1,7 @@
 local common_deps = require("dependency_list")
 
+-- Auto-Completion plugin
+
 return {
 	{
 		"saghen/blink.compat",
