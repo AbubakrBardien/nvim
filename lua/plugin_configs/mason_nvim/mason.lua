@@ -44,7 +44,8 @@ return {
 	},
 	-- stylua: ignore end
 
-	require("plugin_configs.mason_nvim.lsp_config"),
-	require("plugin_configs.mason_nvim.none-ls"),
+	require("plugin_configs.mason_nvim.lsp"),
 	require("plugin_configs.mason_nvim.dap"),
+	require("plugin_configs.mason_nvim.linters"),
+	require("plugin_configs.mason_nvim.formatters"),
 }
