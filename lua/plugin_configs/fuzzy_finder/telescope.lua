@@ -1,5 +1,3 @@
-local common_deps = require("dependency_list")
-
 local size_keymaps = { height = 24, width = 95 }
 local size_fuzzy_find = { height = 0.65, width = 0.65 }
 
@@ -9,7 +7,7 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		common_deps["mini_icons"],
+		"echasnovski/mini.icons",
 	},
 	config = function()
 		require("telescope").setup {

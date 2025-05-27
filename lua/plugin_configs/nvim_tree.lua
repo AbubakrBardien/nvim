@@ -1,9 +1,7 @@
-local common_deps = require("dependency_list")
-
 return {
 	"nvim-tree/nvim-tree.lua",
 	lazy = false,
-	dependencies = { common_deps["mini_icons"] },
+	dependencies = { "echasnovski/mini.icons" },
 	config = function()
 		require("nvim-tree").setup {
 			view = {

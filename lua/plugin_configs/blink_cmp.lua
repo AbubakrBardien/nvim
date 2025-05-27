@@ -1,5 +1,3 @@
-local common_deps = require("dependency_list")
-
 return {
 	{
 		"saghen/blink.compat",
@@ -12,7 +10,7 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"bydlw98/cmp-env",
-			common_deps["mini_icons"],
+			"echasnovski/mini.icons",
 		},
 
 		version = "*",

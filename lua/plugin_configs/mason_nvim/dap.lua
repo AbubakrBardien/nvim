@@ -1,13 +1,10 @@
-local common_deps = require("dependency_list")
-
-------------------- DAP UI and Auto-Installations -------------------
 return {
 	{
 		-- Tool to bridge the gap between "mason.nvim" with "nvim-dap"
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = {
-			common_deps["mason"],
-			common_deps["nvim_dap"],
+			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
 		},
 		config = function()
 			require("mason-nvim-dap").setup {
@@ -18,7 +15,7 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = {
-			common_deps["nvim_dap"],
+			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to the variables
 		},

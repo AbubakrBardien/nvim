@@ -1,4 +1,3 @@
-local common_deps = require("dependency_list")
 local custom_theme = require("plugin_configs.statusline.custom_theme")
 
 local function location()
@@ -26,7 +25,7 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { common_deps["mini_icons"] },
+	dependencies = { "echasnovski/mini.icons" },
 	config = function()
 		require("lualine").setup {
 			options = {
