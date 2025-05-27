@@ -1,7 +1,5 @@
 local common_deps = require("dependency_list")
 
--- Auto-Completion plugin
-
 return {
 	{
 		"saghen/blink.compat",
@@ -9,7 +7,7 @@ return {
 		opts = {},
 	},
 	{
-		"saghen/blink.cmp",
+		"saghen/blink.cmp", -- Auto-Completion plugin
 
 		dependencies = {
 			"rafamadriz/friendly-snippets",

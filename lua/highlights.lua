@@ -17,12 +17,9 @@ vim.api.nvim_command("highlight NvimTreeEmptyFolderName guifg=#71B0E8")
 vim.api.nvim_command("highlight NvimTreeOpenedFolderName guifg=#71B0E8")
 vim.api.nvim_command("highlight NvimTreeSymlinkFolderName guifg=#71B0E8")
 
--- Dap Virtual Text
+-- DAP Virtual Text
 vim.api.nvim_command("highlight NvimDapVirtualText guifg=#4f4e5c")
 vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold")
-
--- Code Folding
-vim.api.nvim_command("highlight MoreMsg guifg=#74c4c4")
 
 -- Mini Icons
 vim.api.nvim_command("highlight BinaryFileIconColor guifg=#696d8c")

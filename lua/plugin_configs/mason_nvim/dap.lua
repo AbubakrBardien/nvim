@@ -11,9 +11,7 @@ return {
 		},
 		config = function()
 			require("mason-nvim-dap").setup {
-				-- Suppported DAPS: https://github.com/jay-babu/mason-nvim-dap.nvim/blob/main/lua/mason-nvim-dap/mappings/source.lua
-				ensure_installed = { "codelldb", "python", "bash" },
-				handlers = {}, -- sets up dap in the predefined manner
+				handlers = {}, -- sets up DAP configurations so that I don't have to do it manually
 			}
 		end,
 	},
