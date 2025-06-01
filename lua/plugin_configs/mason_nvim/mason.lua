@@ -28,7 +28,7 @@ return {
 					"pyright",              -- Python
 
 					-- DAPs
-					"codelldb",             -- C/C++
+					"codelldb",             -- C/C++, Rust, Zig
 					"debugpy",              -- Python
 
 					-- Linters
@@ -37,6 +37,7 @@ return {
 					-- Formatters
 					"stylua",               -- Lua
 					"shfmt",                -- Bash
+					"clang-format",         -- C/C++, Java, Json, JavaScript
 				},
 				auto_update = true,
 			}
