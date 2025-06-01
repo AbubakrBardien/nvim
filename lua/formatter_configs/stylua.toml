@@ -1,1 +1,5 @@
-../../stylua.toml
+call_parentheses = "NoSingleTable"
+column_width = 999                 # I'll handle the column width manually
+indent_type = "Tabs"               # Default
+indent_width = 4                   # Default
+quote_style = "AutoPreferDouble"   # Default
