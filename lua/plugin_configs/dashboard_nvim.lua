@@ -1,4 +1,5 @@
 ---@diagnostic disable: unused-local
+
 local art1 = {
 	"",
 	"",

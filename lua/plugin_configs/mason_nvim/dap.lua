@@ -43,8 +43,8 @@ return {
 		end,
 	},
 
-	vim.api.nvim_command("hi BreakpointSymbol guifg=#de525d guibg=none"),
-	vim.api.nvim_command("hi DapStopped guifg=#6ed470 guibg=none"),
+	vim.api.nvim_set_hl(0, "BreakpointSymbol", { fg = "#de525d", bg = "NONE" }),
+	vim.api.nvim_set_hl(0, "DapStopped", { fg = "#6ed470", bg = "NONE" }),
 
 	vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "BreakpointSymbol" }),
 	vim.fn.sign_define("DapBreakpointCondition", { text = " ", texthl = "BreakpointSymbol" }),
