@@ -1,5 +1,6 @@
 local g = vim.g
 local opt = vim.opt
+local o = vim.o
 
 g.mapleader = " "
 
@@ -32,3 +33,9 @@ opt.signcolumn = "yes:1"
 ---- Plugin Options ----
 g.floaterm_width = 0.9
 g.floaterm_height = 0.9
+
+---- Create Folds ----
+o.foldcolumn = "1"
+o.foldlevelstart = 99 -- Start with all folds open
+o.foldenable = true
+o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

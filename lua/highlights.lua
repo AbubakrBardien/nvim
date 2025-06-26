@@ -21,6 +21,9 @@ vim.api.nvim_command("highlight NvimTreeSymlinkFolderName guifg=#71B0E8")
 vim.api.nvim_command("highlight NvimDapVirtualText guifg=#4f4e5c")
 vim.api.nvim_command("highlight NvimDapVirtualTextChanged guifg=#616073 gui=bold")
 
+-- Code Folding
+vim.api.nvim_command("highlight UfoFoldedBg guibg=none")
+
 -- Mini Icons
 vim.api.nvim_command("highlight BinaryFileIconColor guifg=#696d8c")
 vim.api.nvim_command("highlight CSS_IconColor guifg=#8DC3EF")

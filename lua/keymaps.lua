@@ -108,6 +108,9 @@ map("n", "<leader>pc", ":PeekClose<CR>", { desc = "Close Preview" })
 ------ Colorizer ------
 map("n", "<leader>cr", ":ColorizerReloadAllBuffers<CR>", { desc = "Reload Colorizer plugin" })
 
+------ Toggle Folding ------
+map("n", "<CR>", "za", { noremap = true, silent = true, desc = "Toggle Fold" })
+
 ------ Other ------
 map("n", "<C-s>",     ":w<CR>",        { desc = "Save File" })
 map("n", ";",         ":",             { desc = "Enter Command Mode" })
