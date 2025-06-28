@@ -35,7 +35,7 @@ require("highlights")
 require("colorizer").setup { "*", "!lazy" } -- Don't apply 'colorizer' to the Lazy menu
 
 --- Keymaps ---
-require("keymaps")
+require("general_keymaps")
 
 --- Auto-Commands ---
 require("auto_commands")

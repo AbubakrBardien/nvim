@@ -3,7 +3,9 @@ return {
 	lazy = false,
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
-		require("nvim-tree").setup {
+		local nvim_tree = require("nvim-tree")
+		local nvim_tree_api = require("nvim-tree.api")
+		nvim_tree.setup {
 			view = {
 				width = {
 					min = 35,
@@ -31,5 +33,9 @@ return {
 				root_folder_label = ":t/",
 			},
 		}
+
+		vim.keymap.set("n", "<C-n>", function()
+			nvim_tree_api.tree.toggle()
+		end, { desc = "Toggle Nvim Tree" })
 	end,
 }

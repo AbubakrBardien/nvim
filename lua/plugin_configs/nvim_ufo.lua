@@ -31,6 +31,7 @@ return {
 					return "" -- Tell ufo to provide no folds for this buffer
 				end
 
+				-- return { "lsp", "treesitter", "indent" } -- request the ability to do this
 				return { "lsp", "indent" }
 			end,
 		}

@@ -1,11 +1,5 @@
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local sorters = require("telescope.sorters")
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-
 local function enter(prompt_bufnr)
-	local selected_entry = action_state.get_selected_entry()
+	local selected_entry = require("telescope.actions.state").get_selected_entry()
 	local format = ""
 
 	if selected_entry[1] == "PDF" then
@@ -14,7 +8,7 @@ local function enter(prompt_bufnr)
 		format = "docx"
 	end
 
-	actions.close(prompt_bufnr)
+	require("telescope.actions").close(prompt_bufnr)
 
 	local current_file = vim.fn.expand("%")
 	local output_file = vim.fn.expand("%:r") .. "." .. format
@@ -30,8 +24,8 @@ local function enter(prompt_bufnr)
 end
 
 local opts = {
-	finder = finders.new_table { "PDF", "WORD" },
-	sorter = sorters.get_generic_fuzzy_sorter(),
+	finder = require("telescope.finders").new_table { "PDF", "WORD" },
+	sorter = require("telescope.sorters").get_generic_fuzzy_sorter(),
 
 	layout_config = {
 		height = 0.25,
@@ -47,5 +41,6 @@ local opts = {
 	end,
 }
 
-local conversions = pickers.new(opts)
+---@diagnostic disable-next-line: missing-parameter
+local conversions = require("telescope.pickers").new(opts)
 return conversions

@@ -10,6 +10,45 @@ return {
 			require("mason-nvim-dap").setup {
 				handlers = {}, -- sets up DAP configurations so that I don't have to do it manually
 			}
+
+			------ Keymaps ------  (I couldn't get Local Keymaps to work)
+
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			-- stylua: ignore start
+			vim.keymap.set("n", "<leader>dc", dap.continue,  { desc = "DAP: Continue" })
+			vim.keymap.set("n", "<leader>n",  dap.step_over, { desc = "DAP: Step Over" })
+			vim.keymap.set("n", "<leader>db", dap.step_back, { desc = "DAP: Step Back" })
+			vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP: Step Into" })
+			vim.keymap.set("n", "<leader>do", dap.step_out,  { desc = "DAP: Step Out" })
+			-- stylua: ignore end
+
+			vim.keymap.set("n", "<leader>dt", function()
+				dap.terminate()
+				dapui.close()
+			end, { desc = "DAP: Terminate" })
+
+			vim.keymap.set("n", "<leader>b", function()
+				if vim.api.nvim_get_current_line() ~= "" then
+					dap.toggle_breakpoint()
+				end
+			end, { desc = "DAP: Toggle Breakpoint" })
+
+			vim.keymap.set("n", "<leader>B", function()
+				if vim.api.nvim_get_current_line() ~= "" then
+					vim.ui.input({ prompt = "Enter Condition:" }, function(condition)
+						dap.toggle_breakpoint(condition)
+					end)
+				end
+			end, { desc = "DAP: Toggle Conditional Breakpoint" })
+
+			vim.keymap.set("n", "<Space>/", function()
+				---@diagnostic disable-next-line: missing-fields
+				dapui.eval(nil, { enter = true })
+			end, { desc = "DAPUI: Eval var under cursor" })
+
+			---------------------
 		end,
 	},
 	{
@@ -20,22 +59,18 @@ return {
 			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to the variables
 		},
 		config = function()
-			local dap, dapui = require("dap"), require("dapui")
+			local dap = require("dap")
+			local dapui = require("dapui")
+
 			dapui.setup()
 
 			-- auto-generate the debug windows/elements
-			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.launch.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated.dapui_config = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited.dapui_config = function()
-				dapui.close()
-			end
+			-- stylua: ignore start
+			dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
+			dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
+			dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+			dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+			-- stylua: ignore end
 
 			require("nvim-dap-virtual-text").setup {
 				virt_text_pos = "eol", -- end of line
