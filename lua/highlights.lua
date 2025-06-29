@@ -52,3 +52,7 @@ vim.api.nvim_set_hl(0, "VideoIconColor", { fg = "#edaa64" })
 vim.api.nvim_set_hl(0, "VimIconColor", { fg = "#a6e3a1" })
 vim.api.nvim_set_hl(0, "WindowsIconColor", { fg = "#7abefa" })
 vim.api.nvim_set_hl(0, "WordDocIconColor", { fg = "#5d8df5" })
+
+-- Trouble
+vim.api.nvim_set_hl(0, "TroubleNormal", { link = "Normal" })
+vim.api.nvim_set_hl(0, "TroubleNormalNC", { link = "Normal" })

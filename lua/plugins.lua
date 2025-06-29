@@ -12,6 +12,7 @@ return {
 	require("plugin_configs.onedarkpro_nvim"),
 	require("plugin_configs.peek_nvim"),
 	require("plugin_configs.statuscol_nvim"),
+	require("plugin_configs.trouble_nvim"),
 	require("plugin_configs.vim_floaterm"),
 
 	require("plugin_configs.fuzzy_finder.telescope"),

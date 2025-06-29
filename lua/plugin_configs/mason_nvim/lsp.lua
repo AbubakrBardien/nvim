@@ -21,7 +21,6 @@ local function setup_lsp_keymaps(client, bufnr)
 	vim.keymap.set("n", "gca",            vim.lsp.buf.code_action,           { buffer = bufnr, desc = "Code Action" })
 	vim.keymap.set("n", "gra",            vim.lsp.buf.rename,                { buffer = bufnr, desc = "Rename Symbol" })
 	vim.keymap.set("n", "gdf",            vim.lsp.buf.definition,            { buffer = bufnr, desc = "Go to Definition" })
-	vim.keymap.set("n", "grr",            telescope_builtins.lsp_references, { buffer = bufnr, desc = "Find References" })
 	vim.keymap.set("n", "gdc",            vim.lsp.buf.declaration,           { buffer = bufnr, desc = "Go to Declaration" })
 	vim.keymap.set("n", "gi",             vim.lsp.buf.implementation,        { buffer = bufnr, desc = "Go to Implementation" })
 	-- stylua: ignore end
