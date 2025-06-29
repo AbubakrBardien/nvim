@@ -8,7 +8,7 @@ return {
 				-- Diagnostic Signs
 				{
 					text = { "%s" },
-					click = "v:lua.ScSa",
+					-- click = "v:lua.ScSa", (makes the segmant clickable)
 					colwidth = 2,
 				},
 
@@ -25,7 +25,7 @@ return {
 					hl = "FoldColumn",
 					wrap = true,
 					colwidth = 1,
-					click = "v:lua.ScFa",
+					-- click = "v:lua.ScFa", (makes the segmant clickable)
 				},
 			},
 		}
