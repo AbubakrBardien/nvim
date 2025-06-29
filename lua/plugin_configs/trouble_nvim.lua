@@ -7,7 +7,7 @@ return {
 		local common_mode_settings = {
 			win = {
 				position = "right",
-				size = 0.25,
+				size = 0.275,
 			},
 		}
 
@@ -26,7 +26,7 @@ return {
 		local toggle = require("trouble").toggle
 
 		trouble.setup {
-			auto_close = true,
+			auto_close = false,
 			focus = true,
 
 			modes = modes_table,
@@ -71,5 +71,9 @@ return {
 			toggle("diagnostics")
 			toggle("symbols")
 		end, { desc = "IDE-like Workspace" })
+
+		vim.keymap.set("n", "<leader>xa", function()
+			toggle("lsp")
+		end, { desc = "LSP Summary" })
 	end,
 }
