@@ -72,5 +72,9 @@ return {
 		vim.keymap.set("n", "<leader>xa", function()
 			toggle("lsp")
 		end, { desc = "LSP Summary (Trouble)" })
+
+		vim.keymap.set("n", "<leader>xc", function()
+			trouble.close()
+		end, { desc = "Close Trouble Window" })
 	end,
 }

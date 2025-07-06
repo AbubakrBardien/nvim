@@ -11,6 +11,7 @@ return {
 		local telescope_builtins = require("telescope.builtin")
 		local telescope_actions = require("telescope.actions")
 		local custom_picker = require("plugin_configs.fuzzy_finder.custom_picker")
+		local trouble = require("trouble.sources.telescope")
 
 		local size_keymaps = { height = 24, width = 95 }
 		local size_fuzzy_find = { height = 0.65, width = 0.65 }
@@ -23,7 +24,12 @@ return {
 					height = 0.68,
 					width = 0.85,
 				},
-				mappings = { i = { ["<esc>"] = telescope_actions.close } },
+				mappings = {
+					i = {
+						["<esc>"] = telescope_actions.close,
+						["<c-t>"] = trouble.open,
+					},
+				},
 			},
 			pickers = {
 				keymaps = {
