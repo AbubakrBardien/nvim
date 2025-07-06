@@ -1,7 +1,6 @@
 return {
 	{
 		"saghen/blink.compat",
-		version = "*",
 		config = true,
 	},
 	{

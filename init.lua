@@ -19,6 +19,9 @@ require("lazy").setup {
 	spec = { import = "plugins" },
 
 	--- Lazy.nvim config ---
+	defaults = {
+		version = "*",
+	},
 	install = { colorscheme = { colorscheme } },
 	change_detection = { notify = false },
 	checker = {
