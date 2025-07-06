@@ -26,11 +26,8 @@ return {
 		local toggle = require("trouble").toggle
 
 		trouble.setup {
-			auto_close = false,
 			focus = true,
-
 			modes = modes_table,
-
 			icons = {
 				kinds = {
 					Boolean = " ",
@@ -70,10 +67,10 @@ return {
 		vim.keymap.set("n", "<leader>xx", function()
 			toggle("diagnostics")
 			toggle("symbols")
-		end, { desc = "IDE-like Workspace" })
+		end, { desc = "IDE-like Workspace (Trouble)" })
 
 		vim.keymap.set("n", "<leader>xa", function()
 			toggle("lsp")
-		end, { desc = "LSP Summary" })
+		end, { desc = "LSP Summary (Trouble)" })
 	end,
 }
