@@ -138,6 +138,7 @@ return {
 				text =         { glyph = "󰉿" },
 				variable =     { hl = "MiniIconsGreen" },
 				interface =    { glyph = "" },
+				snippet =      { glyph = "󰆐", hl = "SnippetIconColor" }
 			},
 			default = {
 				file = { glyph = "", hl = "TextFileIconColor" },
