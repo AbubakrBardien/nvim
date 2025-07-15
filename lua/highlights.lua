@@ -1,3 +1,6 @@
+-- Constants
+local NVIM_TREE = { fg = "#71B0E8" }
+
 -- Cursor Highlights
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2D313B" })
 vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#2D313B" })
@@ -10,12 +13,12 @@ vim.api.nvim_set_hl(0, "DashboardKey", { fg = "#5BB3C1" })
 vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#4f4e5c" })
 
 -- File Tree
-vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#71B0E8" })
-vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "#71B0E8" })
-vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#71B0E8" })
-vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", { fg = "#71B0E8" })
-vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#71B0E8" })
-vim.api.nvim_set_hl(0, "NvimTreeSymlinkFolderName", { fg = "#71B0E8" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", NVIM_TREE)
+vim.api.nvim_set_hl(0, "NvimTreeRootFolder", NVIM_TREE)
+vim.api.nvim_set_hl(0, "NvimTreeFolderName", NVIM_TREE)
+vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", NVIM_TREE)
+vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", NVIM_TREE)
+vim.api.nvim_set_hl(0, "NvimTreeSymlinkFolderName", NVIM_TREE)
 
 -- DAP Virtual Text
 vim.api.nvim_set_hl(0, "NvimDapVirtualText", { fg = "#4f4e5c" })

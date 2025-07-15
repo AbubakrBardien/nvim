@@ -1,3 +1,18 @@
+-- Constants
+-- stylua: ignore start
+local ZSH =         { glyph = "󱆃", hl = "MiniIconsGreen" }
+local LUA =         { glyph = "", hl = "LuaIconColor" }
+local VIM =         { glyph = "", hl = "VimIconColor" }
+local HYPRLAND =    { glyph = "", hl = "MiniIconsCyan" }
+local IMAGE =       { glyph = "", hl = "ImageIconColor" }
+local VIDEO =       { glyph = "", hl = "VideoIconColor" }
+local BINARY_FILE = { glyph = "", hl = "BinaryFileIconColor" }
+local SETTINGS =    { glyph = "", hl = "SettingsIconColor" }
+local DATABASE =    { glyph = "", hl = "SettingsIconColor" }
+local COMPRESSED =  { glyph = "", hl = "CompressedFileIconColor" }
+local FONT =        { glyph = "", hl = "TextFileIconColor" }
+-- stylua: ignore start
+
 return {
 	"echasnovski/mini.icons",
 	config = function()
@@ -6,36 +21,36 @@ return {
 			-- The "file", "extention", and "filetype" sections
 			-- are ordered from Highest to Lowest Priority.
 			file = {
-				[".zshenv"] = { glyph = "󱆃" },
-				[".zshrc"] =  { glyph = "󱆃" },
+				[".zshenv"] = ZSH,
+				[".zshrc"] = ZSH,
 
-				[".gitignore"] =    { hl = "GitIconColor" },
-				[".styluaignore"] = { glyph = "", hl = "LuaIconColor" },
-				["init.lua"] =      { glyph = "", hl = "LuaIconColor" },
+				[".gitignore"] = { hl = "GitIconColor" },
+				[".styluaignore"] = LUA,
+				["init.lua"] = LUA,
 
 				[".editorconfig"] = { glyph = "", hl = "EditorconfigIconColor" },
 				["README.md"] =     { glyph = "", hl = "TextFileIconColor" },
 				LICENSE =           { hl = "LicenseIconColor" },
 
-				viminfo = { glyph = "", hl = "VimIconColor" },
-				vimrc =   { glyph = "", hl = "VimIconColor" },
+				viminfo = VIM,
+				vimrc = VIM,
 
 				-- Have to settle for this in the meantime because I have plugins that rely on "MiniIcons.mock_nvim_web_devicons()"
 				-- For more info: https://github.com/echasnovski/mini.nvim/issues/1893#issuecomment-3068354876
-				["animations.conf"] =    { glyph = "", hl = "MiniIconsCyan" },
-				["autostart.conf"] =     { glyph = "", hl = "MiniIconsCyan" },
-				["decorations.conf"] =   { glyph = "", hl = "MiniIconsCyan" },
-				["env_variables.conf"] = { glyph = "", hl = "MiniIconsCyan" },
-				["input.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
-				["keybindings.conf"] =   { glyph = "", hl = "MiniIconsCyan" },
-				["monitors.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
-				["other.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
-				["rules.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
-				["tiling.conf"] =        { glyph = "", hl = "MiniIconsCyan" },
-				["variables.conf"] =     { glyph = "", hl = "MiniIconsCyan" },
-				["hypridle.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
-				["hyprland.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
-				["hyprlock.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
+				["animations.conf"] = HYPRLAND,
+				["autostart.conf"] = HYPRLAND,
+				["decorations.conf"] = HYPRLAND,
+				["env_variables.conf"] = HYPRLAND,
+				["input.conf"] = HYPRLAND,
+				["keybindings.conf"] = HYPRLAND,
+				["monitors.conf"] = HYPRLAND,
+				["other.conf"] = HYPRLAND,
+				["rules.conf"] = HYPRLAND,
+				["tiling.conf"] = HYPRLAND,
+				["variables.conf"] = HYPRLAND,
+				["hypridle.conf"] = HYPRLAND,
+				["hyprland.conf"] = HYPRLAND,
+				["hyprlock.conf"] = HYPRLAND,
 			},
 			extension = {
 				-- General Info
@@ -44,20 +59,20 @@ return {
 
 				-- Images
 				gif =  { glyph = "", hl = "GifIconColor" },
-				jpeg = { glyph = "", hl = "ImageIconColor" },
-				jpg =  { glyph = "", hl = "ImageIconColor" },
-				png =  { glyph = "", hl = "ImageIconColor" },
-				webp = { glyph = "", hl = "ImageIconColor" },
+				jpeg = IMAGE,
+				jpg = IMAGE,
+				png = IMAGE,
+				webp = IMAGE,
 
 				-- Videos
-				avi =  { glyph = "", hl = "VideoIconColor" },
-				mkv =  { glyph = "", hl = "VideoIconColor" },
-				mp4 =  { glyph = "", hl = "VideoIconColor" },
-				webm = { glyph = "", hl = "VideoIconColor" },
+				avi = VIDEO,
+				mkv = VIDEO,
+				mp4 = VIDEO,
+				webm = VIDEO,
 
 				-- Object Files
-				o =  { glyph = "", hl = "BinaryFileIconColor" },
-				so = { glyph = "", hl = "BinaryFileIconColor" },
+				o = BINARY_FILE,
+				so = BINARY_FILE,
 
 				-- Header files for C and C++
 				h = { glyph = "", hl = "HeaderFileIconColor" },
@@ -69,8 +84,8 @@ return {
 
 				-- Other Languages
 				java = { hl = "JavaIconColor" },
-				lua =  { hl = "LuaIconColor" },
-				py =   { hl = "PythonIconColor" },
+				lua = LUA,
+				py = { hl = "PythonIconColor" },
 
 				-- Jupyter Notebooks
 				ipynb = { glyph = "", hl = "JupyterIconColor" },
@@ -81,36 +96,36 @@ return {
 				xlsx = { hl = "ExcelIconColor" },
 
 				-- Data Serialization Formats
-				ini =   { glyph = "", hl = "SettingsIconColor" },
+				ini = SETTINGS,
 				json =  { glyph = "" },
 				jsonc = { glyph = "", hl = "JsonIconColor" },
 
 				-- Databases
-				db =      { glyph = "", hl = "SettingsIconColor" },
-				sql =     { glyph = "", hl = "SettingsIconColor" },
-				sqlite =  { glyph = "", hl = "SettingsIconColor" },
-				sqlite3 = { glyph = "", hl = "SettingsIconColor" },
+				db = DATABASE,
+				sql = DATABASE,
+				sqlite = DATABASE,
+				sqlite3 = DATABASE,
 
 				-- Config Extensions
-				cfg =  { glyph = "", hl = "SettingsIconColor" },
-				conf = { glyph = "", hl = "SettingsIconColor" },
-				rasi = { glyph = "", hl = "SettingsIconColor" },
+				cfg = SETTINGS,
+				conf = SETTINGS,
+				rasi = SETTINGS,
 
 				-- Logs
 				log = { glyph = "", hl = "TextFileIconColor " },
 
 				-- Compressed Files
-				["7z"] = { glyph = "", hl = "CompressedFileIconColor" },
-				rar =    { glyph = "", hl = "CompressedFileIconColor" },
-				zip =    { glyph = "", hl = "CompressedFileIconColor" },
+				["7z"] = COMPRESSED,
+				rar = COMPRESSED,
+				zip = COMPRESSED,
 
 				-- Fonts
-				ttf = { glyph = "", hl = "TextFileIconColor" },
-				otf = { glyph = "", hl = "TextFileIconColor" },
+				ttf = FONT,
+				otf = FONT,
 
 				-- Other
 				exe = { hl = "WindowsIconColor" },
-				zsh = { glyph = "󱆃", hl = "ShellIconColor" },
+				zsh = ZSH,
 			},
 			filetype = {
 				sh =      { glyph = "", hl = "ShellIconColor" },
