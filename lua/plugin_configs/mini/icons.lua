@@ -19,6 +19,23 @@ return {
 
 				viminfo = { glyph = "", hl = "VimIconColor" },
 				vimrc =   { glyph = "", hl = "VimIconColor" },
+
+				-- Have to settle for this in the meantime because I have plugins that rely on "MiniIcons.mock_nvim_web_devicons()"
+				-- For more info: https://github.com/echasnovski/mini.nvim/issues/1893#issuecomment-3068354876
+				["animations.conf"] =    { glyph = "", hl = "MiniIconsCyan" },
+				["autostart.conf"] =     { glyph = "", hl = "MiniIconsCyan" },
+				["decorations.conf"] =   { glyph = "", hl = "MiniIconsCyan" },
+				["env_variables.conf"] = { glyph = "", hl = "MiniIconsCyan" },
+				["input.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
+				["keybindings.conf"] =   { glyph = "", hl = "MiniIconsCyan" },
+				["monitors.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
+				["other.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
+				["rules.conf"] =         { glyph = "", hl = "MiniIconsCyan" },
+				["tiling.conf"] =        { glyph = "", hl = "MiniIconsCyan" },
+				["variables.conf"] =     { glyph = "", hl = "MiniIconsCyan" },
+				["hypridle.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
+				["hyprland.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
+				["hyprlock.conf"] =      { glyph = "", hl = "MiniIconsCyan" },
 			},
 			extension = {
 				-- General Info
