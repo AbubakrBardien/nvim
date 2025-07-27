@@ -4,8 +4,6 @@ return {
 	require("plugin_configs.dressing_nvim"),
 	require("plugin_configs.gitsigns_nvim"),
 	require("plugin_configs.indent_blankline_nvim"),
-	require("plugin_configs.nvim_autopairs"),
-	require("plugin_configs.nvim_colorizer"),
 	require("plugin_configs.nvim_tree"),
 	require("plugin_configs.nvim_treesitter"),
 	require("plugin_configs.nvim_ufo"),
@@ -20,5 +18,7 @@ return {
 	require("plugin_configs.statusline.lualine"),
 
 	require("plugin_configs.mini.ai"),
+	require("plugin_configs.mini.hipatterns"),
 	require("plugin_configs.mini.icons"),
+	require("plugin_configs.mini.pairs"),
 }

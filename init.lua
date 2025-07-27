@@ -35,7 +35,6 @@ vim.api.nvim_command("colorscheme " .. colorscheme)
 
 --- Color related configs ---
 require("highlights")
-require("colorizer").setup { "*", "!lazy" } -- Don't apply 'colorizer' to the Lazy menu
 
 --- Keymaps ---
 require("general_keymaps")
