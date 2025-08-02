@@ -1,4 +1,4 @@
-local globals = require("global_variables")
+local globals = require("globals")
 
 --- Install Lazy.nvim if not already installed ---
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

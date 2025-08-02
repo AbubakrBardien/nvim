@@ -1,4 +1,4 @@
-local globals = require("global_variables")
+local globals = require("globals")
 
 return {
 	-- Favourite Theme

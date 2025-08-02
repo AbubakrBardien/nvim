@@ -1,3 +1,5 @@
+local globals = require("globals")
+
 return {
 	cmd = { "clangd" },
 	filetypes = { "c", "cpp" },
@@ -7,4 +9,6 @@ return {
 		".clang-format",
 		".git",
 	},
+	on_attach = globals.on_attach,
+	capabilities = globals.capabilities,
 }

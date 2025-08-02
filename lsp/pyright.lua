@@ -1,3 +1,5 @@
+local globals = require("globals")
+
 return {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
@@ -5,4 +7,6 @@ return {
 		"requirements.txt",
 		".git",
 	},
+	on_attach = globals.on_attach,
+	capabilities = globals.capabilities,
 }
