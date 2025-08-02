@@ -1,5 +1,4 @@
 -- Based on the Material theme provided by lualine.nvim
-
 local colors = {
 	fg = "#eeffff",
 	bg = "#263238",
@@ -14,7 +13,7 @@ local colors = {
 	grey3 = "#3a3f42",
 }
 
-return {
+local custom_theme = {
 	normal = {
 		a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
 		b = { fg = colors.blue, bg = colors.grey3, gui = "bold" },
@@ -45,4 +44,56 @@ return {
 		b = { fg = colors.fg, bg = colors.bg },
 		c = { fg = colors.fg, bg = colors.grey2 },
 	},
+}
+
+local function location()
+	local row = vim.fn.line(".")
+	local col = vim.fn.col(".")
+	return "row " .. row .. ", " .. "col " .. col
+end
+
+local function file_size()
+	local bytes = vim.fn.getfsize(vim.fn.expand("%"))
+	local sizes = { "B", "KB", "MB", "GB" }
+	local i = 1
+
+	while bytes >= 1024 do
+		bytes = bytes / 1024.0
+		i = i + 1
+	end
+
+	if bytes % 1 == 0 then
+		return string.format("%.0f %s", bytes, sizes[i])
+	else
+		return string.format("%.1f %s", bytes, sizes[i])
+	end
+end
+
+return {
+	"nvim-lualine/lualine.nvim",
+	dependencies = { "echasnovski/mini.icons" },
+	config = function()
+		require("lualine").setup {
+			options = {
+				globalstatus = true,
+				theme = custom_theme,
+				always_divide_middle = false,
+
+				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
+				disabled_filetypes = { "dashboard" },
+
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+			},
+			sections = {
+				lualine_a = { "mode" },
+				-- lualine_b = { "branch", "diff" },
+				lualine_b = { "branch" },
+				lualine_c = { "filetype", "filename" },
+				lualine_x = { file_size },
+				lualine_y = { location, "progress" },
+				lualine_z = {},
+			},
+		}
+	end,
 }

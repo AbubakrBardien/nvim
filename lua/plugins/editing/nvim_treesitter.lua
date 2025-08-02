@@ -9,7 +9,12 @@ return {
 			modules = {},
 
 			auto_install = true,
-			highlight = { enable = true },
+			highlight = {
+				enable = true,
+				disable = function(lang, buf) -- ask for help with this on GitHub
+					return vim.bo.filetype == "trouble"
+				end,
+			},
 		}
 	end,
 }

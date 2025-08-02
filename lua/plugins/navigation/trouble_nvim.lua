@@ -56,7 +56,7 @@ return {
 			toggle("diagnostics")
 		end, { desc = "Diagnostics (Trouble)" })
 
-		vim.keymap.set("n", "<leader>gr", function()
+		vim.keymap.set("n", "grr", function()
 			toggle("lsp_references")
 		end, { desc = "LSP References (Trouble)" })
 

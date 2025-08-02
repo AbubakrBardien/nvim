@@ -10,7 +10,7 @@ return {
 		local telescope = require("telescope")
 		local telescope_builtins = require("telescope.builtin")
 		local telescope_actions = require("telescope.actions")
-		local custom_picker = require("plugin_configs.fuzzy_finder.custom_picker")
+		local custom_picker = require("custom_script_files.convert_file")
 		local trouble = require("trouble.sources.telescope")
 
 		local size_keymaps = { height = 24, width = 95 }

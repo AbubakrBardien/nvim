@@ -29,8 +29,11 @@ opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
 opt.scrolloff = 8
 opt.showmode = false
 opt.signcolumn = "yes:1"
+opt.wrap = false
 
----- Plugin Options ----
+----- Plugin Options -----
+
+---- Floterm ----
 g.floaterm_width = 0.9
 g.floaterm_height = 0.9
 
