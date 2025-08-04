@@ -23,16 +23,3 @@ local function load_plugins()
 end
 
 return load_plugins()
-
--- return {
--- 	require("plugins.fuzzy_finder.telescope"),
--- 	require("plugins.mason_nvim.mason"),
---
--- 	require("plugins.mini.ai"),
--- 	require("plugins.mini.hipatterns"),
--- 	require("plugins.mini.icons"),
--- 	require("plugins.mini.pairs"),
---
--- 	require("plugins.ui.onedarkpro_nvim"),
--- 	require("plugins.ui.lualine"),
--- }

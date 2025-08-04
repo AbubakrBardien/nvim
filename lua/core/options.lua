@@ -1,44 +1,40 @@
-local g = vim.g
-local opt = vim.opt
-local o = vim.o
-
-g.mapleader = " "
+vim.g.mapleader = " "
 
 ---- Line Numbering ----
-opt.relativenumber = true
-opt.number = true
-opt.numberwidth = 2
+vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.numberwidth = 2
 
 ---- Cursor Highlighting --
-opt.cursorline = true
-opt.cursorcolumn = true
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 ---- Indenting ----
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
 ---- Spell-check ----
-opt.spell = false -- toggle when needed
-opt.spelllang = { "en_gb" }
+vim.opt.spell = false -- toggle when needed
+vim.opt.spelllang = { "en_gb" }
 
 ---- Other Options ----
 -- stylua: ignore
-opt.guicursor = ""            -- To make the cursor stay the same when in insert mode
-opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
-opt.scrolloff = 8
-opt.showmode = false
-opt.signcolumn = "yes:1"
-opt.wrap = false
+vim.opt.guicursor = ""            -- To make the cursor stay the same when in insert mode
+vim.opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
+vim.opt.scrolloff = 8
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes:1"
+vim.opt.wrap = false
 
 ----- Plugin Options -----
 
 ---- Floterm ----
-g.floaterm_width = 0.9
-g.floaterm_height = 0.9
+vim.g.floaterm_width = 0.9
+vim.g.floaterm_height = 0.9
 
 ---- Create Folds ----
-o.foldcolumn = "1"
-o.foldlevelstart = 99 -- Start with all folds open
-o.foldenable = true
-o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldcolumn = "1"
+vim.o.foldlevelstart = 99 -- Start with all folds open
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
