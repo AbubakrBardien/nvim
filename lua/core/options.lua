@@ -1,40 +1,45 @@
 vim.g.mapleader = " "
 
----- Line Numbering ----
-vim.opt.relativenumber = true
-vim.opt.number = true
-vim.opt.numberwidth = 2
+-- stylua: ignore start
 
----- Cursor Highlighting --
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+---- Line Numbering ----
+vim.opt.number = true             -- Line numbers
+vim.opt.relativenumber = true     -- Relative line numbers
+
+---- Cursor Highlighting ----
+vim.opt.cursorline = true         -- Enable cursor line highlighting
+vim.opt.cursorcolumn = true       -- Enable cursor column highlighting
 
 ---- Indenting ----
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4               -- Number of spaces a real tab character is displayed as
+vim.opt.shiftwidth = 4            -- Number of spaces an indent/un-indent action is
+vim.opt.smartindent = true        -- Smart automatic indentation
 
----- Spell-check ----
-vim.opt.spell = false -- toggle when needed
-vim.opt.spelllang = { "en_gb" }
+---- Search Settings ----
+vim.opt.ignorecase = true         -- Case-insensitive search
+vim.opt.smartcase = true          -- Case-sensitive if uppercase in search
 
----- Other Options ----
--- stylua: ignore
-vim.opt.guicursor = ""            -- To make the cursor stay the same when in insert mode
+---- Visual Settings ----
+vim.opt.guicursor = ""            -- Makes the cursor stay the same when in insert mode
+vim.opt.wrap = false              -- Don't wrap lines
+vim.opt.scrolloff = 8             -- Keep 8 lines above/below cursor
+vim.opt.sidescrolloff = 10        -- Keep 8 columns left/right cursor
+vim.opt.showmode = false          -- Don't show mode in command line 
+vim.opt.signcolumn = "yes:1"      -- Ensure the Sign Column (column for diagnostic symbols) is always visible
+
+---- Other Settings ----
 vim.opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
-vim.opt.scrolloff = 8
-vim.opt.showmode = false
-vim.opt.signcolumn = "yes:1"
-vim.opt.wrap = false
-
------ Plugin Options -----
+vim.opt.undofile = true           -- Add persistant undo across sessions
+vim.opt.undodir = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.undo-history"
 
 ---- Floterm ----
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
----- Create Folds ----
-vim.o.foldcolumn = "1"
-vim.o.foldlevelstart = 99 -- Start with all folds open
-vim.o.foldenable = true
+---- Folding settings ----
+vim.o.foldenable = true           -- Enable Code Folding
+vim.o.foldcolumn = "1"            -- Width of the column for the Fold Symbols
+vim.o.foldlevelstart = 99         -- Start with all folds open
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+-- stylua: ignore end

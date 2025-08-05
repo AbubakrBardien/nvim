@@ -39,7 +39,6 @@ return {
 					"shfmt",                -- Bash
 					"clang-format",         -- C/C++, Java, Json, JavaScript
 				},
-				auto_update = true,
 			}
 		end,
 	},
