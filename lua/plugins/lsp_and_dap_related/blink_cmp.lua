@@ -49,15 +49,13 @@ return {
 					menu = {
 						scrollbar = false,
 						draw = {
-							columns = { { "kind_icon", "label", "source_name", gap = 1 } },
-							-- columns = { { "label", gap = 1 } },
-							-- columns = function()
-							-- 	if vim.bo.filetype == "text" then
-							-- 		return { { "label", gap = 1 } }
-							-- 	else
-							-- 		return { { "kind_icon", "label", "source_name", gap = 1 } }
-							-- 	end
-							-- end,
+							columns = function()
+								if vim.fn.mode() == "c" then
+									return { { "label" } } -- For Command Mode
+								else
+									return { { "kind_icon", "label", "source_name", gap = 1 } }
+								end
+							end,
 							components = {
 								-- Makes "Blink.cmp" use icons from "Mini.icons"
 								kind_icon = {
@@ -80,6 +78,7 @@ return {
 						auto_show = true,
 						auto_show_delay_ms = 500,
 					},
+					list = { selection = { auto_insert = false } },
 				},
 
 				keymap = {
