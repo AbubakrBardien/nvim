@@ -14,7 +14,7 @@ vim.keymap.set("n", "<Tab>",     ":bnext<CR>",     { desc = "Go to Next Buffer" 
 vim.keymap.set("n", "<S-Tab>",   ":bprevious<CR>", { desc = "Go to Previous Buffer" })
 
 ---- Toggle Folding ----
-vim.keymap.set("n", "<CR>", "za", { noremap = true, silent = true, desc = "Toggle Fold" })
+vim.keymap.set("n", "<CR>", "za", { desc = "Toggle Fold", silent = true })
 
 ---- Better Indenting in Visual Mode ----
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })

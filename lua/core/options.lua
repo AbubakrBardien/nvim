@@ -27,12 +27,7 @@ vim.opt.sidescrolloff = 10        -- Keep 8 columns left/right cursor
 vim.opt.showmode = false          -- Don't show mode in command line 
 vim.opt.signcolumn = "yes:1"      -- Ensure the Sign Column (column for diagnostic symbols) is always visible
 
----- Other Settings ----
-vim.opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
-vim.opt.undofile = true           -- Add persistant undo across sessions
-vim.opt.undodir = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.undo-history"
-
----- Floterm ----
+---- "vim-floaterm" plugin ----
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
@@ -41,5 +36,10 @@ vim.o.foldenable = true           -- Enable Code Folding
 vim.o.foldcolumn = "1"            -- Width of the column for the Fold Symbols
 vim.o.foldlevelstart = 99         -- Start with all folds open
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+---- Other Settings ----
+vim.opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
+vim.opt.undofile = true           -- Add persistant undo across sessions
+vim.opt.undodir = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.undo-history"
 
 -- stylua: ignore end

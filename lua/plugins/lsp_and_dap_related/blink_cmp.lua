@@ -96,5 +96,3 @@ return {
 		end,
 	},
 }
-
--- Check their website to learn more about the default settings

@@ -2,6 +2,7 @@ local M = {}
 
 M.colorscheme = "onedark"
 
+---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
 	-- stylua: ignore start
 	vim.keymap.set("n", "<C-k>",          vim.lsp.buf.hover,          { buffer = bufnr, desc = "Display Hover Information" })
