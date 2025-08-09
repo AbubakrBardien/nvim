@@ -6,7 +6,7 @@ return {
 	{
 		"saghen/blink.cmp", -- Auto-Completion plugin
 		dependencies = {
-			"rafamadriz/friendly-snippets",
+			-- "rafamadriz/friendly-snippets", -- Create your own instead, and use this for inspiration
 			"bydlw98/cmp-env",
 			"echasnovski/mini.icons",
 		},

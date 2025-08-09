@@ -5,24 +5,32 @@ M.colorscheme = "onedark"
 ---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
 	-- stylua: ignore start
-	vim.keymap.set("n", "<C-k>",          vim.lsp.buf.hover,          { buffer = bufnr, desc = "Display Hover Information" })
-	vim.keymap.set({ "n", "i" }, "<C-l>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Display Signature Help" })
-	vim.keymap.set("n", "gca",            vim.lsp.buf.code_action,    { buffer = bufnr, desc = "Code Action" })
-	vim.keymap.set("n", "gdf",            vim.lsp.buf.definition,     { buffer = bufnr, desc = "Go to Definition" })
-	vim.keymap.set("n", "gdc",            vim.lsp.buf.declaration,    { buffer = bufnr, desc = "Go to Declaration" })
-	vim.keymap.set("n", "gi",             vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to Implementation" })
+	vim.keymap.set("n", "<C-k>",          vim.lsp.buf.hover,           { buffer = bufnr, desc = "Display Hover Information" })
+	vim.keymap.set({ "n", "i" }, "<C-l>", vim.lsp.buf.signature_help,  { buffer = bufnr, desc = "Display Signature Help" })
+	vim.keymap.set("n", "gca",            vim.lsp.buf.code_action,     { buffer = bufnr, desc = "Code Action" })
+	vim.keymap.set("n", "grn",            vim.lsp.buf.rename,          { buffer = bufnr, desc = "Rename Symbol" })
+	vim.keymap.set("n", "gdf",            vim.lsp.buf.definition,      { buffer = bufnr, desc = "Go to Definition" })
+	vim.keymap.set("n", "gdc",            vim.lsp.buf.declaration,     { buffer = bufnr, desc = "Go to Declaration" })
+	vim.keymap.set("n", "gi",             vim.lsp.buf.implementation,  { buffer = bufnr, desc = "Go to Implementation" })
+	vim.keymap.set("n", "gt",             vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to Type-Definition" })
 	-- stylua: ignore end
 end
 
--- Function to extend LSP Capabilities
 local function get_capabilities()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-	-- Add the foldingRange capability for nvim-ufo
-	capabilities.textDocument.foldingRange = {
-		dynamicRegistration = false,
-		lineFoldingOnly = true,
+	-- stylua: ignore start
+	capabilities.textDocument = {
+		-- Add the foldingRange capability for the "nvim-ufo" plugin
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		},
+
+		formatting = {},      -- Neovim tells the Language Server that it's capable of Document Formatting
+		rangeFormatting = {}, -- Neovim tells the Language Server that it's capable of formatting a Range of Text
 	}
+	-- stylua: ignore end
 
 	return capabilities
 end

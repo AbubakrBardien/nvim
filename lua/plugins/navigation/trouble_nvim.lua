@@ -64,11 +64,6 @@ return {
 			toggle("symbols")
 		end, { desc = "Symbols (Trouble)" })
 
-		vim.keymap.set("n", "<leader>xx", function()
-			toggle("diagnostics")
-			toggle("symbols")
-		end, { desc = "IDE-like Workspace (Trouble)" })
-
 		vim.keymap.set("n", "<leader>xa", function()
 			toggle("lsp")
 		end, { desc = "LSP Summary (Trouble)" })
