@@ -14,6 +14,9 @@ M.on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gi",             vim.lsp.buf.implementation,  { buffer = bufnr, desc = "Go to Implementation" })
 	vim.keymap.set("n", "gt",             vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to Type-Definition" })
 	-- stylua: ignore end
+	vim.keymap.set("n", "<C-h>", function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	end, { buffer = bufnr, desc = "Toggle Inlay Hints" })
 end
 
 local function get_capabilities()
