@@ -29,7 +29,6 @@ local function get_capabilities()
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		},
-
 		formatting = {},      -- Neovim tells the Language Server that it's capable of Document Formatting
 		rangeFormatting = {}, -- Neovim tells the Language Server that it's capable of formatting a Range of Text
 	}
