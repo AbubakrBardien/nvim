@@ -40,6 +40,6 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 ---- Other Settings ----
 vim.opt.clipboard = "unnamedplus" -- Makes vim use the system clipboard
 vim.opt.undofile = true           -- Add persistant undo across sessions
-vim.opt.undodir = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.undo-history"
+vim.opt.undodir = vim.fn.stdpath("config") .. "/.undo-history"
 
 -- stylua: ignore end

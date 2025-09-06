@@ -41,14 +41,14 @@ return {
 			command = "stylua",
 			args = default_options("stylua.toml", {
 				"--config-path",
-				os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/formatter_configs/stylua.toml",
+				vim.fn.stdpath("config") .. "/lua/formatter_configs/stylua.toml",
 			}),
 		}
 
 		conform.formatters["clang_format_custom"] = {
 			command = "clang-format",
 			args = default_options(".clang-format", {
-				"--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/formatter_configs/.clang-format",
+				"--style=file:" .. vim.fn.stdpath("config") .. "/lua/formatter_configs/.clang-format",
 			}),
 		}
 	end,
