@@ -1,16 +1,14 @@
+local globals = require("globals")
+
 -- Constants
 local NVIM_TREE = { fg = "#71B0E8" }
 
 -- Cursor Highlights
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2D313B" })
-vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#2D313B" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = globals.get_hl_color("CursorLine") })
+vim.api.nvim_set_hl(0, "CursorColumn", { bg = globals.get_hl_color("CursorColumn") })
 
 -- Dashboard
-vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#97C17C" })
-vim.api.nvim_set_hl(0, "DashboardIcon", { fg = "#61A8E6" })
-vim.api.nvim_set_hl(0, "DashboardDesc", { fg = "#61A8E6" })
-vim.api.nvim_set_hl(0, "DashboardKey", { fg = "#5BB3C1" })
-vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#4f4e5c" })
+vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#8dbf6d" })
 
 -- File Tree
 vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", NVIM_TREE)
@@ -25,7 +23,12 @@ vim.api.nvim_set_hl(0, "NvimDapVirtualText", { fg = "#4f4e5c" })
 vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true })
 
 -- Code Folding
-vim.api.nvim_set_hl(0, "UfoFoldedBg", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "UfoFoldedBg", { link = "NONE" })
+vim.api.nvim_set_hl(0, "Folded", { link = "CursorLine" })
+-- vim.api.nvim_set_hl(0, "Folded", { link = "NONE" })
+
+-- Diagnostics
+vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "NONE" })
 
 -- Mini Icons
 vim.api.nvim_set_hl(0, "BinaryFileIconColor", { fg = "#696d8c" })

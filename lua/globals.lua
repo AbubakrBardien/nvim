@@ -1,6 +1,18 @@
 local M = {}
 
-M.colorscheme = "onedark"
+M.colorscheme = "tokyonight-storm"
+-- M.colorscheme = "tokyonight-night"
+-- M.colorscheme = "onedark_vivid"
+-- M.colorscheme = "onedark_dark"
+
+-- This function retrieves a color from a highlight group.
+M.get_hl_color = function(group_name)
+	local hl_group = vim.api.nvim_get_hl(0, { name = group_name, link = false })
+	if hl_group and hl_group.bg then
+		return string.format("#%06x", hl_group.bg)
+	end
+	return nil
+end
 
 ---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
