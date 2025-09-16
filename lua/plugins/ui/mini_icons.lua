@@ -1,23 +1,22 @@
--- Constants
--- stylua: ignore start
-local ZSH =         { glyph = "󱆃", hl = "MiniIconsGreen" }
-local LUA =         { glyph = "", hl = "LuaIconColor" }
-local VIM =         { glyph = "", hl = "VimIconColor" }
-local HYPRLAND =    { glyph = "", hl = "MiniIconsCyan" }
-local IMAGE =       { glyph = "", hl = "ImageIconColor" }
-local VIDEO =       { glyph = "", hl = "VideoIconColor" }
-local BINARY_FILE = { glyph = "", hl = "BinaryFileIconColor" }
-local SETTINGS =    { glyph = "", hl = "SettingsIconColor" }
-local DATABASE =    { glyph = "", hl = "SettingsIconColor" }
-local COMPRESSED =  { glyph = "", hl = "CompressedFileIconColor" }
-local FONT =        { glyph = "", hl = "TextFileIconColor" }
--- stylua: ignore start
-
 return {
 	"echasnovski/mini.icons",
 	config = function()
+		-- stylua: ignore start
+
+		-- Constants
+		local ZSH =         { glyph = "󱆃", hl = "MiniIconsGreen" }
+		local LUA =         { glyph = "", hl = "LuaIconColor" }
+		local VIM =         { glyph = "", hl = "VimIconColor" }
+		local HYPRLAND =    { glyph = "", hl = "MiniIconsCyan" }
+		local IMAGE =       { glyph = "", hl = "ImageIconColor" }
+		local VIDEO =       { glyph = "", hl = "VideoIconColor" }
+		local BINARY_FILE = { glyph = "", hl = "BinaryFileIconColor" }
+		local SETTINGS =    { glyph = "", hl = "SettingsIconColor" }
+		local DATABASE =    { glyph = "", hl = "SettingsIconColor" }
+		local COMPRESSED =  { glyph = "", hl = "CompressedFileIconColor" }
+		local FONT =        { glyph = "", hl = "TextFileIconColor" }
+
 		require("mini.icons").setup {
-			-- stylua: ignore start
 			-- The "file", "extention", and "filetype" sections
 			-- are ordered from Highest to Lowest Priority.
 			file = {
