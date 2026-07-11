@@ -1,7 +1,7 @@
 return {
 	"kevinhwang91/nvim-ufo",
 	dependencies = { "kevinhwang91/promise-async" },
-	commit = "5b75cf5", -- Fixes issue discussed here: https://github.com/kevinhwang91/nvim-ufo/issues/309
+	branch = "main",
 	config = function()
 		---@diagnostic disable-next-line: missing-fields
 		require("ufo").setup {

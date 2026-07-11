@@ -53,6 +53,7 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		branch = "master",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
