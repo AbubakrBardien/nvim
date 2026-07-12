@@ -69,5 +69,8 @@ return {
 			},
 			shortcut_type = "number",
 		}
+
+		-- Highlights
+		vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#8dbf6d" })
 	end,
 }

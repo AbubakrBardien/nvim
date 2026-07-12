@@ -79,8 +79,13 @@ return {
 		end,
 	},
 
-	vim.api.nvim_set_hl(0, "BreakpointSymbol", { fg = "#de525d", bg = "NONE" }),
-	vim.api.nvim_set_hl(0, "DapStopped", { fg = "#6ed470", bg = "NONE" }),
+	-- Highlights
+	-- stylua: ignore start
+	vim.api.nvim_set_hl(0, "BreakpointSymbol",          { fg = "#de525d", bg = "NONE" }),
+	vim.api.nvim_set_hl(0, "DapStopped",                { fg = "#6ed470", bg = "NONE" }),
+	vim.api.nvim_set_hl(0, "NvimDapVirtualText",        { fg = "#4f4e5c" }),
+	vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true }),
+	-- stylua: ignore end
 
 	vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "BreakpointSymbol" }),
 	vim.fn.sign_define("DapBreakpointCondition", { text = " ", texthl = "BreakpointSymbol" }),

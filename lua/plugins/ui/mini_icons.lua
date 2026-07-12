@@ -137,13 +137,44 @@ return {
 				text =         { glyph = "󰉿" },
 				variable =     { hl = "MiniIconsGreen" },
 				interface =    { glyph = "" },
-				snippet =      { glyph = "󰆐", hl = "SnippetIconColor" }
+				snippet =      { glyph = "󰆐", hl = "SnippetIconColor" },
 			},
+
 			default = {
 				file = { glyph = "", hl = "TextFileIconColor" },
 			},
-			-- stylua: ignore end
 		}
 		MiniIcons.mock_nvim_web_devicons()
+
+		-- Highlights
+		vim.api.nvim_set_hl(0, "BinaryFileIconColor",     { fg = "#696d8c" })
+		vim.api.nvim_set_hl(0, "CSS_IconColor",           { fg = "#8DC3EF" })
+		vim.api.nvim_set_hl(0, "CompressedFileIconColor", { fg = "#af6ec2" })
+		vim.api.nvim_set_hl(0, "EditorconfigIconColor",   { fg = "#e3d0cc" })
+		vim.api.nvim_set_hl(0, "ExcelIconColor",          { fg = "#7ab84d" })
+		vim.api.nvim_set_hl(0, "GifIconColor",            { fg = "#d6bb72" })
+		vim.api.nvim_set_hl(0, "GitIconColor",            { fg = "#fab387" })
+		vim.api.nvim_set_hl(0, "HTML_IconColor",          { fg = "#D19A66" })
+		vim.api.nvim_set_hl(0, "HeaderFileIconColor",     { fg = "#d19a66" })
+		vim.api.nvim_set_hl(0, "ImageIconColor",          { fg = "#d6d67e" })
+		vim.api.nvim_set_hl(0, "JS_IconColor",            { fg = "#E5C07A" })
+		vim.api.nvim_set_hl(0, "JavaIconColor",           { fg = "#ba8b5d" })
+		vim.api.nvim_set_hl(0, "JsonIconColor",           { fg = "#f5d07f" })
+		vim.api.nvim_set_hl(0, "JupyterIconColor",        { fg = "#F37626" })
+		vim.api.nvim_set_hl(0, "LicenseIconColor",        { fg = "#5abfc7" })
+		vim.api.nvim_set_hl(0, "LinuxIconColor",          { fg = "#E5C07B" })
+		vim.api.nvim_set_hl(0, "LuaIconColor",            { fg = "#89b4fa" })
+		vim.api.nvim_set_hl(0, "MarkdownIconColor",       { fg = "#87bfed" })
+		vim.api.nvim_set_hl(0, "PDF_IconColor",           { fg = "#d44861" })
+		vim.api.nvim_set_hl(0, "PythonIconColor",         { fg = "#5ba0de" })
+		vim.api.nvim_set_hl(0, "SettingsIconColor",       { fg = "#7f849c" })
+		vim.api.nvim_set_hl(0, "ShellIconColor",          { fg = "#85c456" })
+		vim.api.nvim_set_hl(0, "TextFileIconColor",       { fg = "#bcc5d4" })
+		vim.api.nvim_set_hl(0, "VideoIconColor",          { fg = "#edaa64" })
+		vim.api.nvim_set_hl(0, "VimIconColor",            { fg = "#a6e3a1" })
+		vim.api.nvim_set_hl(0, "WindowsIconColor",        { fg = "#7abefa" })
+		vim.api.nvim_set_hl(0, "WordDocIconColor",        { fg = "#5d8df5" })
+		vim.api.nvim_set_hl(0, "SnippetIconColor",        { fg = "#76bbf5" })
+		-- stylua: ignore end
 	end,
 }

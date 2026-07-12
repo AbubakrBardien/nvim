@@ -36,5 +36,10 @@ return {
 				return { "lsp", "indent" }
 			end,
 		}
+
+		-- Highlights
+		vim.api.nvim_set_hl(0, "UfoFoldedBg", { link = "NONE" })
+		vim.api.nvim_set_hl(0, "Folded", { link = "CursorLine" })
+		-- vim.api.nvim_set_hl(0, "Folded", { link = "NONE" })
 	end,
 }

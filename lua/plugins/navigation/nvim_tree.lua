@@ -5,6 +5,8 @@ return {
 	config = function()
 		local nvim_tree = require("nvim-tree")
 		local nvim_tree_api = require("nvim-tree.api")
+		local NVIM_TREE = { fg = "#71B0E8" }
+
 		nvim_tree.setup {
 			view = {
 				width = {
@@ -34,8 +36,17 @@ return {
 			},
 		}
 
+		-- Keymaps
 		vim.keymap.set("n", "<C-n>", function()
 			nvim_tree_api.tree.toggle()
 		end, { desc = "Toggle Nvim Tree" })
+
+		-- Highlights
+		vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", NVIM_TREE)
+		vim.api.nvim_set_hl(0, "NvimTreeRootFolder", NVIM_TREE)
+		vim.api.nvim_set_hl(0, "NvimTreeFolderName", NVIM_TREE)
+		vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", NVIM_TREE)
+		vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", NVIM_TREE)
+		vim.api.nvim_set_hl(0, "NvimTreeSymlinkFolderName", NVIM_TREE)
 	end,
 }

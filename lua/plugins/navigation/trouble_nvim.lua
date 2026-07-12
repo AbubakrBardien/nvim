@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	version = false,
 	event = "VeryLazy",
 	cmd = "Trouble",
 	-- dependencies = { "echasnovski/mini.icons" }, -- make a request to incorporate this plugin more easily
@@ -52,6 +53,8 @@ return {
 			},
 		}
 
+		-- Keymaps
+
 		vim.keymap.set("n", "<leader>xd", function()
 			toggle("diagnostics")
 		end, { desc = "Diagnostics (Trouble)" })
@@ -71,5 +74,9 @@ return {
 		vim.keymap.set("n", "<leader>xc", function()
 			trouble.close()
 		end, { desc = "Close Trouble Window" })
+
+		-- Highlights
+		vim.api.nvim_set_hl(0, "TroubleNormal", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "TroubleNormalNC", { link = "Normal" })
 	end,
 }
