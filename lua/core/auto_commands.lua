@@ -54,3 +54,38 @@ vim.api.nvim_create_autocmd("FileType", {
 		end, { buffer = true, desc = "Follow Markdown Link" })
 	end,
 })
+
+-- Obsidian image links
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.keymap.set("n", "gx", function()
+			local line = vim.api.nvim_get_current_line()
+
+			-- 1. Check for standard markdown images: ![alt](path)
+			local path = line:match("%!%[.-%]%((.-)%)")
+
+			-- 2. Check for Obsidian wiki-link images: ![[path]] or ![[path|300]]
+			if not path then
+				local wiki_path = line:match("%!%[%[(.-)%]%]")
+				if wiki_path then
+					-- Strip out any Obsidian display sizing like |300 if it exists
+					path = vim.split(wiki_path, "|", { plain = true })[1]
+				end
+			end
+
+			if path then
+				-- Get the clean filename without any subfolder prefixes (e.g., "photo.png")
+				local filename = vim.fs.basename(path)
+
+				-- Route directly to your absolute Vault root path + Images subdirectory
+				local vault_root = vim.fn.getcwd()
+				local absolute_path = vim.fs.normalize(vim.fs.joinpath(vault_root, "Images", filename))
+
+				vim.fn.jobstart({ "xdg-open", absolute_path }, { detach = true })
+			else
+				vim.cmd("normal! gx")
+			end
+		end, { buffer = true, desc = "Open image under cursor in system viewer" })
+	end,
+})
