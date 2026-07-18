@@ -26,3 +26,5 @@ require("lazy").setup {
 		frequency = 86400, -- Check daily (every 86400 seconds)
 	},
 }
+
+vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy Menu" })

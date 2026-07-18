@@ -1,3 +1,5 @@
+local terminal = require("custom_script_files.terminal")
+
 -- stylua: ignore start
 
 ---- Split View Mappings ----
@@ -10,8 +12,8 @@ vim.keymap.set("n", "<A-w>",     ":sp<CR><C-w>j", { desc = "Vertical Split" })
 vim.keymap.set("n", "<A-e>",     ":q<CR>",        { desc = "Close split window" })
 
 ---- Buffer Navigation ----
-vim.keymap.set("n", "<Tab>",     ":bnext<CR>",     { desc = "Go to Next Buffer" })
-vim.keymap.set("n", "<S-Tab>",   ":bprevious<CR>", { desc = "Go to Previous Buffer" })
+vim.keymap.set("n", "<Tab>",     ":bnext<CR>",     { desc = "Go to Next Buffer", silent = true })
+vim.keymap.set("n", "<S-Tab>",   ":bprevious<CR>", { desc = "Go to Previous Buffer", silent = true })
 
 ---- Toggle Folding ----
 vim.keymap.set("n", "<CR>", "za", { desc = "Toggle Fold", silent = true })
@@ -19,6 +21,11 @@ vim.keymap.set("n", "<CR>", "za", { desc = "Toggle Fold", silent = true })
 ---- Better Indenting in Visual Mode ----
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
+---- Terminal ----
+vim.keymap.set({ "n", "t" }, "<C-/>", terminal.toggle, { desc = "Toggle floating terminal" })
+vim.keymap.set({ "n", "t" }, "<C-'>", terminal.kill,   { desc = "Kill terminal window" })
+vim.keymap.set("t"         , "<C-;>", [[<C-\><C-n>]],  { desc = "Exit terminal mode" })
 
 ---- Other ----
 vim.keymap.set("n", "<C-s>",     ":w<CR>",        { desc = "Save File" })

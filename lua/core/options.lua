@@ -8,7 +8,6 @@ vim.opt.relativenumber = true     -- Relative line numbers
 
 ---- Cursor Highlighting ----
 vim.opt.cursorline = true         -- Enable cursor line highlighting
-vim.opt.cursorcolumn = true       -- Enable cursor column highlighting
 
 ---- Indenting ----
 vim.opt.tabstop = 4               -- Number of spaces a real tab character is displayed as
@@ -20,7 +19,6 @@ vim.opt.ignorecase = true         -- Case-insensitive search
 vim.opt.smartcase = true          -- Case-sensitive if uppercase in search
 
 ---- Visual Settings ----
-vim.opt.guicursor = ""            -- Makes the cursor stay the same when in insert mode
 vim.opt.wrap = false              -- Don't wrap lines
 vim.opt.scrolloff = 8             -- Keep 8 lines above/below cursor
 vim.opt.sidescrolloff = 10        -- Keep 8 columns left/right cursor

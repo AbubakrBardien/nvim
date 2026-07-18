@@ -1,8 +1,8 @@
 local M = {}
 
 -- M.colorscheme = "tokyonight-storm"
-M.colorscheme = "tokyonight-moon"
--- M.colorscheme = "tokyonight-night"
+-- M.colorscheme = "tokyonight-moon"
+M.colorscheme = "tokyonight-night"
 -- M.colorscheme = "onedark_vivid"
 -- M.colorscheme = "onedark_dark"
 

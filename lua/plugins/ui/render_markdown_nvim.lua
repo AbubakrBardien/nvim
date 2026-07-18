@@ -6,6 +6,6 @@ return {
 
 		render_markdown.setup { enabled = false }
 
-		vim.keymap.set("n", "<leader>m", render_markdown.toggle, { desc = "Render Markdown" })
+		vim.keymap.set("n", "<leader>rm", render_markdown.toggle, { desc = "Render Markdown" })
 	end,
 }

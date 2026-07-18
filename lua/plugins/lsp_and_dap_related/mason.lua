@@ -12,6 +12,8 @@ return {
 					},
 				},
 			}
+
+			vim.keymap.set("n", "<leader>m", ":Mason<CR>", { desc = "Open Mason Menu" })
 		end,
 	},
 	-- stylua: ignore start

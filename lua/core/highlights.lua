@@ -6,3 +6,7 @@ vim.api.nvim_set_hl(0, "CursorColumn", { bg = globals.get_hl_color("CursorColumn
 
 -- Diagnostics
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "NONE" })
+
+-- Cursor Colour
+vim.api.nvim_set_hl(0, "CustomCursor", { bg = "#878787", force = true })
+vim.opt.guicursor = "a:block-CustomCursor"

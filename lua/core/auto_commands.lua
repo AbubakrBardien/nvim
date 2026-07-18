@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Obsidian File Links
 -- Strip out [[ and ]] and search recursively for files in subfolders
 vim.api.nvim_create_autocmd("FileType", {
+	group = augroup,
 	pattern = "markdown",
 	callback = function()
 		vim.keymap.set("n", "gf", function()
@@ -20,7 +21,6 @@ vim.api.nvim_create_autocmd("FileType", {
 			local raw_link = line:match("%[%[(.-)%]%]")
 
 			if raw_link then
-				-- FIX: Handle Obsidian alias pipes [[Target File|Display Text]]
 				-- Splits the string at '|' if it exists and takes the left side
 				local link = vim.split(raw_link, "|", { plain = true })[1]
 
@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Obsidian image links
 vim.api.nvim_create_autocmd("FileType", {
+	group = augroup,
 	pattern = "markdown",
 	callback = function()
 		vim.keymap.set("n", "gx", function()
