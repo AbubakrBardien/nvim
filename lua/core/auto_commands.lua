@@ -17,8 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.keymap.set("n", "gf", function()
 			local line = vim.api.nvim_get_current_line()
-			-- Find text inside [[ ]]
-			local raw_link = line:match("%[%[(.-)%]%]")
+			local raw_link = line:match("%[%[(.-)%]%]") -- Find text inside [[ ]]
 
 			if raw_link then
 				-- Splits the string at '|' if it exists and takes the left side
@@ -55,25 +54,17 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Obsidian image links
+-- Obsidian image/web links
 vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	pattern = "markdown",
 	callback = function()
 		vim.keymap.set("n", "gx", function()
+			-- stylua: ignore start
 			local line = vim.api.nvim_get_current_line()
-
-			-- 1. Check for standard markdown images: ![alt](path)
-			local path = line:match("%!%[.-%]%((.-)%)")
-
-			-- 2. Check for Obsidian wiki-link images: ![[path]] or ![[path|300]]
-			if not path then
-				local wiki_path = line:match("%!%[%[(.-)%]%]")
-				if wiki_path then
-					-- Strip out any Obsidian display sizing like |300 if it exists
-					path = vim.split(wiki_path, "|", { plain = true })[1]
-				end
-			end
+			local path = line:match("%!%[.-%]%((.-)%)")           -- Check for a standard markdown image: ![alt](path)
+			local web_url = line:match("%[.-%]%((https?://.-)%)") -- Check for a standard markdown web link: [text](url)
+			-- stylua: ignore end
 
 			if path then
 				-- Get the clean filename without any subfolder prefixes (e.g., "photo.png")
@@ -84,9 +75,13 @@ vim.api.nvim_create_autocmd("FileType", {
 				local absolute_path = vim.fs.normalize(vim.fs.joinpath(vault_root, "Images", filename))
 
 				vim.fn.jobstart({ "xdg-open", absolute_path }, { detach = true })
-			else
-				vim.cmd("normal! gx")
+				return
+			elseif web_url then
+				vim.fn.jobstart({ "xdg-open", web_url }, { detach = true })
+				return
 			end
-		end, { buffer = true, desc = "Open image under cursor in system viewer" })
+
+			vim.cmd("normal! gx")
+		end, { buffer = true, desc = "Open image/web link under cursor in system viewer" })
 	end,
 })
