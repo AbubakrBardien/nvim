@@ -25,10 +25,6 @@ vim.opt.sidescrolloff = 10        -- Keep 8 columns left/right cursor
 vim.opt.showmode = false          -- Don't show mode in command line 
 vim.opt.signcolumn = "yes:1"      -- Ensure the Sign Column (column for diagnostic symbols) is always visible
 
----- "vim-floaterm" plugin ----
-vim.g.floaterm_width = 0.9
-vim.g.floaterm_height = 0.9
-
 ---- Folding settings ----
 vim.o.foldenable = true           -- Enable Code Folding
 vim.o.foldcolumn = "1"            -- Width of the column for the Fold Symbols
