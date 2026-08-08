@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 		if win_config.relative ~= "" then
 			return
 		end
+
+		-- Ignore dashboard filetypes & non-file buffers
+		local ignored_ft = { "alpha", "dashboard", "starter", "snacks_dashboard" }
+		if vim.tbl_contains(ignored_ft, vim.bo.filetype) or vim.bo.buftype == "nofile" then
+			return
+		end
+
 		vim.opt_local.cursorline = true
 	end,
 })

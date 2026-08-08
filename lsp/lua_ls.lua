@@ -4,8 +4,9 @@ return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = {
-		".stylua.toml",
 		"stylua.toml",
+		".stylua.toml",
+		".luarc.json",
 		".git",
 	},
 	on_attach = globals.on_attach,
