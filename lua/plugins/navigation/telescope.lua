@@ -4,7 +4,7 @@ return {
 	branch = "master",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"echasnovski/mini.icons",
+		"nvim-mini/mini.icons",
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	config = function()
