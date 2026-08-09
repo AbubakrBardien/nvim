@@ -3,7 +3,6 @@ return {
 	version = false,
 	event = "VeryLazy",
 	cmd = "Trouble",
-	-- dependencies = { "echasnovski/mini.icons" }, -- make a request to incorporate this plugin more easily
 	config = function()
 		local common_mode_settings = {
 			win = {

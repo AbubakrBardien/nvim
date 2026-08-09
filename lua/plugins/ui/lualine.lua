@@ -2,7 +2,7 @@ local globals = require("globals")
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "echasnovski/mini.icons" },
+	dependencies = { "nvim-mini/mini.icons" },
 	config = function()
 		-- Based on the Material theme provided by lualine.nvim
 		local colors = {

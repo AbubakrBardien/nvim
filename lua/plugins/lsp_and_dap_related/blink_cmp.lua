@@ -8,7 +8,7 @@ return {
 		dependencies = {
 			-- "rafamadriz/friendly-snippets", -- Create your own instead, and use this for inspiration
 			"bydlw98/cmp-env",
-			"echasnovski/mini.icons",
+			"nvim-mini/mini.icons",
 		},
 
 		-- Can't use the "enabled = function() .. end," logic to enable plugin based on the filetype, even though the documentation says you can. Trust me, I've tried
