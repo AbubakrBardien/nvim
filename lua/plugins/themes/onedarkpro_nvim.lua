@@ -1,10 +1,10 @@
-local globals = require("globals")
-
 return {
 	"olimorris/onedarkpro.nvim",
 	priority = 1000,
 	lazy = false,
 	config = function()
+		local globals = require("globals")
+
 		-- require("onedarkpro").setup {
 		-- colors = { onedark = { bg = "#191c1f" } },
 		-- }
