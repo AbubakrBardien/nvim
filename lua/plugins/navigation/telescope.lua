@@ -9,9 +9,8 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
-		local telescope_builtins = require("telescope.builtin")
+		local telescope_builtin = require("telescope.builtin")
 		local telescope_actions = require("telescope.actions")
-		local telescope_actions_state = require("telescope.actions.state")
 		local telescope_themes = require("telescope.themes")
 		local custom_picker = require("custom_script_files.convert_file")
 		local trouble = require("trouble.sources.telescope")
@@ -58,19 +57,19 @@ return {
 		telescope.load_extension("ui-select")
 
 		-- stylua: ignore start
-		vim.keymap.set("n", "<leader>ff", telescope_builtins.find_files,       { desc = "Find Files" })
-		vim.keymap.set("n", "<leader>fp", telescope_builtins.live_grep,        { desc = "Fuzzy-Find in Project" })
-		vim.keymap.set("n", "<leader>fh", telescope_builtins.help_tags,        { desc = "Search Help Tags" })
-		vim.keymap.set("n", "<leader>fr", telescope_builtins.oldfiles,         { desc = "Search Recent Files" })
+		vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files,       { desc = "Find Files" })
+		vim.keymap.set("n", "<leader>fp", telescope_builtin.live_grep,        { desc = "Fuzzy-Find in Project" })
+		vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags,        { desc = "Search Help Tags" })
+		vim.keymap.set("n", "<leader>fr", telescope_builtin.oldfiles,         { desc = "Search Recent Files" })
 		vim.keymap.set("n", "<leader>fc", function() custom_picker:find() end, { desc = "Open File Conversion Menu" })
 		-- stylua: ignore end
 
 		vim.keymap.set("n", "<leader>fk", function()
-			telescope_builtins.keymaps { show_plug = false }
+			telescope_builtin.keymaps { show_plug = false }
 		end, { desc = "Search Custom Keymaps" })
 
 		vim.keymap.set("n", "<leader>fb", function()
-			telescope_builtins.buffers {
+			telescope_builtin.buffers {
 				attach_mappings = function(prompt_bufnr, map)
 					-- Define the Delete action
 					local delete_buf = function()
@@ -88,7 +87,7 @@ return {
 
 		-- Custom Telescope Picker to search in the Source Code directories of installed plugins
 		vim.keymap.set("n", "<leader>fsc", function()
-			telescope_builtins.find_files {
+			telescope_builtin.find_files {
 				cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
 			}
 		end, { desc = "Search Plugin Source Code" })

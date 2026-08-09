@@ -1,8 +1,5 @@
 return {
 	"folke/trouble.nvim",
-	version = false,
-	event = "VeryLazy",
-	cmd = "Trouble",
 	config = function()
 		local common_mode_settings = {
 			win = {
@@ -23,7 +20,6 @@ return {
 		end
 
 		local trouble = require("trouble")
-		local toggle = require("trouble").toggle
 
 		trouble.setup {
 			focus = true,
@@ -53,26 +49,13 @@ return {
 		}
 
 		-- Keymaps
-
-		vim.keymap.set("n", "<leader>xd", function()
-			toggle("diagnostics")
-		end, { desc = "Diagnostics (Trouble)" })
-
-		vim.keymap.set("n", "grr", function()
-			toggle("lsp_references")
-		end, { desc = "LSP References (Trouble)" })
-
-		vim.keymap.set("n", "<leader>xs", function()
-			toggle("symbols")
-		end, { desc = "Symbols (Trouble)" })
-
-		vim.keymap.set("n", "<leader>xa", function()
-			toggle("lsp")
-		end, { desc = "LSP Summary (Trouble)" })
-
-		vim.keymap.set("n", "<leader>xc", function()
-			trouble.close()
-		end, { desc = "Close Trouble Window" })
+		-- stylua: ignore start
+		vim.keymap.set("n", "<leader>xd", function() trouble.toggle("diagnostics") end,    { desc = "Diagnostics (Trouble)" })
+		vim.keymap.set("n", "grr",        function() trouble.toggle("lsp_references") end, { desc = "LSP References (Trouble)" })
+		vim.keymap.set("n", "<leader>xs", function() trouble.toggle("symbols") end,        { desc = "Symbols (Trouble)" })
+		vim.keymap.set("n", "<leader>xa", function() trouble.toggle("lsp") end,            { desc = "LSP Summary (Trouble)" })
+		vim.keymap.set("n", "<leader>xc", function() trouble.close() end,                  { desc = "Close Trouble Window" })
+		-- stylua: ignore end
 
 		-- Highlights
 		vim.api.nvim_set_hl(0, "TroubleNormal", { link = "Normal" })
