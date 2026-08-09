@@ -34,21 +34,7 @@ return {
 				viminfo = VIM,
 				vimrc = VIM,
 
-				-- Have to settle for this in the meantime because I have plugins that rely on "MiniIcons.mock_nvim_web_devicons()"
-				-- For more info: https://github.com/echasnovski/mini.nvim/issues/1893#issuecomment-3068354876
-				["animations.conf"] = HYPRLAND,
-				["autostart.conf"] = HYPRLAND,
-				["decorations.conf"] = HYPRLAND,
-				["env_variables.conf"] = HYPRLAND,
-				["input.conf"] = HYPRLAND,
-				["keybindings.conf"] = HYPRLAND,
-				["monitors.conf"] = HYPRLAND,
-				["other.conf"] = HYPRLAND,
-				["rules.conf"] = HYPRLAND,
-				["tiling.conf"] = HYPRLAND,
-				["variables.conf"] = HYPRLAND,
 				["hypridle.conf"] = HYPRLAND,
-				["hyprland.conf"] = HYPRLAND,
 				["hyprlock.conf"] = HYPRLAND,
 			},
 			extension = {
