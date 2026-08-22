@@ -1,7 +1,10 @@
+local globals = require("globals")
+
 return {
 	{
 		-- Tool to bridge the gap between "mason.nvim" with "nvim-dap"
 		"jay-babu/mason-nvim-dap.nvim",
+		enabled = not globals.nixos,
 		dependencies = {
 			"williamboman/mason.nvim",
 			"mfussenegger/nvim-dap",
@@ -10,8 +13,35 @@ return {
 			require("mason-nvim-dap").setup {
 				handlers = {}, -- sets up DAP configurations so that I don't have to do it manually
 			}
+		end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		branch = "master",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to the variables
+		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
 
-			------ Keymaps ------  (I couldn't get Local Keymaps to work)
+			dapui.setup()
+
+			-- auto-generate the debug windows/elements
+			-- stylua: ignore start
+			dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
+			dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
+			dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+			dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+			-- stylua: ignore end
+
+			require("nvim-dap-virtual-text").setup {
+				virt_text_pos = "eol", -- end of line
+			}
+
+			------ Keymaps ------
 
 			local dap = require("dap")
 			local dapui = require("dapui")
@@ -49,45 +79,19 @@ return {
 			end, { desc = "DAPUI: Eval var under cursor" })
 
 			---------------------
-		end,
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		branch = "master",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio",
-			"theHamsta/nvim-dap-virtual-text", -- shows variable values right next to the variables
-		},
-		config = function()
-			local dap = require("dap")
-			local dapui = require("dapui")
 
-			dapui.setup()
-
-			-- auto-generate the debug windows/elements
+			-- Highlights
 			-- stylua: ignore start
-			dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
-			dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
-			dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-			dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+			vim.api.nvim_set_hl(0, "BreakpointSymbol",          { fg = "#de525d", bg = "NONE" })
+			vim.api.nvim_set_hl(0, "DapStopped",                { fg = "#6ed470", bg = "NONE" })
+			vim.api.nvim_set_hl(0, "NvimDapVirtualText",        { fg = "#4f4e5c" })
+			vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true })
 			-- stylua: ignore end
 
-			require("nvim-dap-virtual-text").setup {
-				virt_text_pos = "eol", -- end of line
-			}
+			vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "BreakpointSymbol" })
+			vim.fn.sign_define("DapBreakpointCondition", { text = " ", texthl = "BreakpointSymbol" })
+			vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped" })
 		end,
 	},
 
-	-- Highlights
-	-- stylua: ignore start
-	vim.api.nvim_set_hl(0, "BreakpointSymbol",          { fg = "#de525d", bg = "NONE" }),
-	vim.api.nvim_set_hl(0, "DapStopped",                { fg = "#6ed470", bg = "NONE" }),
-	vim.api.nvim_set_hl(0, "NvimDapVirtualText",        { fg = "#4f4e5c" }),
-	vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true }),
-	-- stylua: ignore end
-
-	vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "BreakpointSymbol" }),
-	vim.fn.sign_define("DapBreakpointCondition", { text = " ", texthl = "BreakpointSymbol" }),
-	vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped" }),
 }

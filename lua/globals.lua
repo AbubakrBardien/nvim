@@ -8,6 +8,8 @@ M.colorscheme = "tokyonight-night"
 
 M.cursor_color = "#878787"
 
+M.nixos = vim.fn.filereadable("/etc/NIXOS") == 1
+
 -- This function retrieves a color from a highlight group.
 M.get_hl_color = function(group_name)
 	local hl_group = vim.api.nvim_get_hl(0, { name = group_name, link = false })

@@ -1,7 +1,10 @@
+local globals = require("globals")
+
 return {
 	{
 		-- Package Manager for LSPs, DAPs, Linters, and Formatters
 		"williamboman/mason.nvim",
+		enabled = not globals.nixos,
 		config = function()
 			require("mason").setup {
 				ui = {
@@ -20,6 +23,7 @@ return {
 	{
 		-- To auto-install Mason packages
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		enabled = not globals.nixos,
 		config = function()
 			require("mason-tool-installer").setup {
 				ensure_installed = {
