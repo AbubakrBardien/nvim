@@ -25,6 +25,13 @@ require("lazy").setup {
 		notify = false,
 		frequency = 86400, -- Check daily (every 86400 seconds)
 	},
+	build = {
+		-- Force lazy to use system C compiler available in PATH
+		executable = "gcc",
+	},
+	performance = {
+		reset_packpath = false, -- Critical for NixOS plugin compatibility
+	},
 }
 
 vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy Menu" })

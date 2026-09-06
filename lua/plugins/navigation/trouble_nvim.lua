@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	branch = "main", -- Pull directly from main instead of version 3.7.1 tag
 	config = function()
 		local common_mode_settings = {
 			win = {
