@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("lint").linters_by_ft = {
 			sh = { "shellcheck" }, -- Needed for "bash-langauge-server"
+			nix = { "statix" },
 		}
 	end,
 }

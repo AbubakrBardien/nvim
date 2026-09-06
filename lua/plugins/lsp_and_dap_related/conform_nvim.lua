@@ -31,6 +31,7 @@ return {
 				sh = { "shfmt" },
 				c = { "clang_format_custom" },
 				cpp = { "clang_format_custom" },
+				nix = { "nixfmt_custom" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",
@@ -51,6 +52,11 @@ return {
 			args = default_options(".clang-format", {
 				"--style=file:" .. vim.fn.stdpath("config") .. "/lua/formatter_configs/.clang-format",
 			}),
+		}
+
+		conform.formatters["nixfmt_custom"] = {
+			command = "nixfmt",
+			args = { "--indent=4", "-" },
 		}
 	end,
 }
