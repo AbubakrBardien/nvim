@@ -16,7 +16,7 @@ return {
 			orange = "#D8B576",
 			grey1 = "#314549",
 			grey2 = globals.get_hl_color("StatusLineNC") or globals.get_hl_color("Normal"),
-			grey3 = "#3a3f42",
+			grey3 = "#34383b", -- "#3a3f42",
 		}
 
 		local custom_theme = {
@@ -52,27 +52,19 @@ return {
 			},
 		}
 
-		local function location()
-			local row = vim.fn.line(".")
-			local col = vim.fn.col(".")
-			return "row " .. row .. ", " .. "col " .. col
-		end
+		local function active_lsp()
+			local clients = vim.lsp.get_clients { bufnr = 0 }
 
-		local function file_size()
-			local bytes = vim.fn.getfsize(vim.fn.expand("%"))
-			local sizes = { "B", "KB", "MB", "GB" }
-			local i = 1
-
-			while bytes >= 1024 do
-				bytes = bytes / 1024.0
-				i = i + 1
+			if next(clients) == nil then
+				return ""
 			end
 
-			if bytes % 1 == 0 then
-				return string.format("%.0f %s", bytes, sizes[i])
-			else
-				return string.format("%.1f %s", bytes, sizes[i])
+			local c = {}
+			for _, client in ipairs(clients) do
+				table.insert(c, client.name)
 			end
+
+			return " " .. table.concat(c, ", ")
 		end
 
 		require("lualine").setup {
@@ -91,9 +83,9 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "branch" },
 				lualine_c = { "filetype", "filename" },
-				lualine_x = { file_size },
-				lualine_y = { location, "progress" },
-				lualine_z = {},
+				lualine_x = { "diagnostics" },
+				lualine_y = { active_lsp },
+				lualine_z = { "progress" },
 			},
 		}
 	end,
