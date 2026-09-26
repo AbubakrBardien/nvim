@@ -7,7 +7,7 @@ vim.opt.number = true             -- Line numbers
 vim.opt.relativenumber = true     -- Relative line numbers
 
 ---- Cursor Highlighting ----
-vim.opt.cursorline = true         -- Enable cursor line highlighting
+vim.opt.cursorline = true         -- Enable cursor line highlighting -- Also set in "modicator.nvim" plugin
 
 ---- Indenting ----
 vim.opt.tabstop = 4               -- Number of spaces a real tab character is displayed as
