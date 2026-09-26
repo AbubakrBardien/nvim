@@ -27,6 +27,26 @@ vim.keymap.set({ "n", "t" }, "<C-/>", terminal.toggle, { desc = "Toggle floating
 vim.keymap.set({ "n", "t" }, "<C-'>", terminal.kill,   { desc = "Kill terminal window" })
 vim.keymap.set("t"         , "<C-;>", [[<C-\><C-n>]],  { desc = "Exit terminal mode" })
 
+---- Quickfix List ----
+local function toggle_qf()
+  local qf_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      qf_open = true
+      break
+    end
+  end
+  if qf_open then
+    vim.cmd("cclose")
+  else
+    vim.cmd("copen")
+  end
+end
+
+vim.keymap.set("n", "]q", ":cnext<CR>",     { desc = "Next quickfix item", silent = true })
+vim.keymap.set("n", "[q", ":cprev<CR>",     { desc = "Previous quickfix item", silent = true })
+vim.keymap.set("n", "<leader>q", toggle_qf, { desc = "Toggle quickfix list" })
+
 ---- Other ----
 vim.keymap.set("n", "<C-s>",     ":w<CR>",        { desc = "Save File" })
 vim.keymap.set("n", ";",         ":",             { desc = "Enter Command Mode" })

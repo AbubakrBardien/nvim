@@ -6,6 +6,7 @@ end
 local ui_group = augroup("ui")
 local ft_group = augroup("filetypes")
 local nav_group = augroup("navigation")
+local quickfix_group = augroup("quickfix")
 
 -----------------------------------------------------------------------
 
@@ -84,5 +85,33 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 				vim.cmd("normal! zz")
 			end)
 		end
+	end,
+})
+
+-----------------------------------------------------------------------
+
+---- Quickfix List (buffer-local behavior) ----
+vim.api.nvim_create_autocmd("FileType", {
+	group = quickfix_group,
+	pattern = "qf",
+	callback = function()
+		vim.keymap.set("n", "dd", function()
+			local qf_list = vim.fn.getqflist()
+			local idx = vim.fn.line(".")
+			table.remove(qf_list, idx)
+			vim.fn.setqflist(qf_list)
+			vim.fn.cursor(idx, 1)
+		end, { buffer = true, desc = "Remove item from quickfix list" })
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	group = quickfix_group,
+	pattern = "qf",
+	callback = function(args)
+		vim.keymap.set("n", "<CR>", function()
+			local idx = vim.fn.line(".")
+			vim.cmd(idx .. "cc")
+		end, { buffer = args.buf, desc = "Jump to quickfix item" })
 	end,
 })
