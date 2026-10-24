@@ -57,16 +57,22 @@ return {
 		telescope.load_extension("ui-select")
 
 		-- stylua: ignore start
-		vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files,       { desc = "Find Files" })
-		vim.keymap.set("n", "<leader>fp", telescope_builtin.live_grep,        { desc = "Fuzzy-Find in Project" })
-		vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags,        { desc = "Search Help Tags" })
-		vim.keymap.set("n", "<leader>fr", telescope_builtin.oldfiles,         { desc = "Search Recent Files" })
-		vim.keymap.set("n", "<leader>fc", function() custom_picker:find() end, { desc = "Open File Conversion Menu" })
+		vim.keymap.set("n", "grr", function() telescope_builtin.lsp_references() end, { desc = "LSP References" })
+
+		vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Find Files" })
+		vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep,  { desc = "Fuzzy-Find in Project" })
+		vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags,  { desc = "Search Help Tags" })
+		vim.keymap.set("n", "<leader>fr", telescope_builtin.oldfiles,   { desc = "Search Recent Files" })
+
+		vim.keymap.set("n", "<leader>fc",  function() custom_picker:find() end,                            { desc = "Open File Conversion Menu" })
+		vim.keymap.set("n", "<leader>fd",  function() telescope_builtin.diagnostics { bufnr = 0 } end,     { desc = "Search Diagnostics (Buffer)" })
+		vim.keymap.set("n", "<leader>fwd", function() telescope_builtin.diagnostics() end,                 { desc = "Search Diagnostics (Workspace)" })
+		vim.keymap.set("n", "<leader>fk",  function() telescope_builtin.keymaps { show_plug = false } end, { desc = "Search Custom Keymaps" })
 		-- stylua: ignore end
 
-		vim.keymap.set("n", "<leader>fk", function()
-			telescope_builtin.keymaps { show_plug = false }
-		end, { desc = "Search Custom Keymaps" })
+		vim.keymap.set("n", "<leader>fsc", function()
+			telescope_builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") }
+		end, { desc = "Search Plugin Source Code" })
 
 		vim.keymap.set("n", "<leader>fb", function()
 			telescope_builtin.buffers {
@@ -84,12 +90,5 @@ return {
 				end,
 			}
 		end, { desc = "Search Buffers" })
-
-		-- Custom Telescope Picker to search in the Source Code directories of installed plugins
-		vim.keymap.set("n", "<leader>fsc", function()
-			telescope_builtin.find_files {
-				cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
-			}
-		end, { desc = "Search Plugin Source Code" })
 	end,
 }
