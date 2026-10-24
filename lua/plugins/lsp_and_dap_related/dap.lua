@@ -43,9 +43,6 @@ return {
 
 			------ Keymaps ------
 
-			local dap = require("dap")
-			local dapui = require("dapui")
-
 			-- stylua: ignore start
 			vim.keymap.set("n", "<leader>dc", dap.continue,  { desc = "DAP: Continue" })
 			vim.keymap.set("n", "<leader>n",  dap.step_over, { desc = "DAP: Step Over" })
