@@ -13,7 +13,6 @@ return {
 		local telescope_actions = require("telescope.actions")
 		local telescope_themes = require("telescope.themes")
 		local custom_picker = require("custom_script_files.convert_file")
-		local trouble = require("trouble.sources.telescope")
 
 		local size_keymaps = { height = 24, width = 95 }
 		local size_fuzzy_find = { height = 0.65, width = 0.65 }
@@ -29,7 +28,6 @@ return {
 				mappings = {
 					i = {
 						["<esc>"] = telescope_actions.close,
-						["<c-t>"] = trouble.open,
 					},
 				},
 			},
