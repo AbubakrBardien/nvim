@@ -79,6 +79,12 @@ return {
 						auto_show_delay_ms = 500,
 					},
 					list = { selection = { auto_insert = false } },
+					-- stylua: ignore start
+					trigger = {
+						show_on_keyword = false,           -- Disable automatically showing the completion menu while typing
+						show_on_trigger_character = false, -- Disable showing on trigger characters like '.' or ':'
+					},
+					-- stylua: ignore end
 				},
 
 				keymap = {
