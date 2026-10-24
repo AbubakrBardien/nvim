@@ -70,8 +70,11 @@ return {
 		-- Append remaining common entries
 		vim.list_extend(center_entries, {
 			{ icon = " ", desc = "Nvim Configs", action = "Telescope find_files cwd=" .. vim.fn.stdpath("config") },
-			{ icon = " ", desc = "Find Files", key = "Space ff", key_format = shortcut_fmt, action = "Telescope find_files" },
+			-- stylua: ignore start
+			{ icon = " ", desc = "Find Files",   key = "Space ff", key_format = shortcut_fmt, action = "Telescope find_files" },
 			{ icon = "󰚰 ", desc = "Recent Files", key = "Space fr", key_format = shortcut_fmt, action = "Telescope oldfiles" },
+			{ icon = " ", desc = "Sessions",     key = "Space fs", key_format = shortcut_fmt, action = "Telescope persisted" },
+			-- stylua: ignore end
 		})
 
 		require("dashboard").setup {

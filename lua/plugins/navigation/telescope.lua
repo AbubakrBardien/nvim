@@ -6,6 +6,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-mini/mini.icons",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"olimorris/persisted.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -52,6 +53,7 @@ return {
 		}
 
 		telescope.load_extension("ui-select")
+		telescope.load_extension("persisted")
 
 		-- stylua: ignore start
 		vim.keymap.set("n", "grr", function() telescope_builtin.lsp_references() end, { desc = "LSP References" })
@@ -64,6 +66,7 @@ return {
 		vim.keymap.set("n", "<leader>fd",  function() telescope_builtin.diagnostics { bufnr = 0 } end,     { desc = "Search Diagnostics (Buffer)" })
 		vim.keymap.set("n", "<leader>fwd", function() telescope_builtin.diagnostics() end,                 { desc = "Search Diagnostics (Workspace)" })
 		vim.keymap.set("n", "<leader>fk",  function() telescope_builtin.keymaps { show_plug = false } end, { desc = "Search Custom Keymaps" })
+		vim.keymap.set("n", "<leader>fs",  function() telescope.extensions.persisted.persisted() end,      { desc = "Search Sessions" })
 		-- stylua: ignore end
 
 		vim.keymap.set("n", "<leader>fc", function()
