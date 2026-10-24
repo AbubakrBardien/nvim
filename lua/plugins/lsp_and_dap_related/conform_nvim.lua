@@ -33,10 +33,6 @@ return {
 				cpp = { "clang_format_custom" },
 				nix = { "nixfmt_custom" },
 			},
-			format_on_save = {
-				lsp_format = "fallback",
-				timeout_ms = 500,
-			},
 		}
 
 		conform.formatters["stylua_custom"] = {
