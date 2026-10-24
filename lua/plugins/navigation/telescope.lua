@@ -12,7 +12,6 @@ return {
 		local telescope_builtin = require("telescope.builtin")
 		local telescope_actions = require("telescope.actions")
 		local telescope_themes = require("telescope.themes")
-		local custom_picker = require("custom_script_files.convert_file")
 
 		local size_keymaps = { height = 24, width = 95 }
 		local size_fuzzy_find = { height = 0.65, width = 0.65 }
@@ -62,13 +61,12 @@ return {
 		vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags,  { desc = "Search Help Tags" })
 		vim.keymap.set("n", "<leader>fr", telescope_builtin.oldfiles,   { desc = "Search Recent Files" })
 
-		vim.keymap.set("n", "<leader>fc",  function() custom_picker:find() end,                            { desc = "Open File Conversion Menu" })
 		vim.keymap.set("n", "<leader>fd",  function() telescope_builtin.diagnostics { bufnr = 0 } end,     { desc = "Search Diagnostics (Buffer)" })
 		vim.keymap.set("n", "<leader>fwd", function() telescope_builtin.diagnostics() end,                 { desc = "Search Diagnostics (Workspace)" })
 		vim.keymap.set("n", "<leader>fk",  function() telescope_builtin.keymaps { show_plug = false } end, { desc = "Search Custom Keymaps" })
 		-- stylua: ignore end
 
-		vim.keymap.set("n", "<leader>fsc", function()
+		vim.keymap.set("n", "<leader>fc", function()
 			telescope_builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") }
 		end, { desc = "Search Plugin Source Code" })
 
