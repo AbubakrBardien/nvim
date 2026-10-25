@@ -56,8 +56,6 @@ return {
 		telescope.load_extension("persisted")
 
 		-- stylua: ignore start
-		vim.keymap.set("n", "grr", function() telescope_builtin.lsp_references() end, { desc = "LSP References" })
-
 		vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Find Files" })
 		vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep,  { desc = "Fuzzy-Find in Project" })
 		vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags,  { desc = "Search Help Tags" })
@@ -72,6 +70,17 @@ return {
 		vim.keymap.set("n", "<leader>fc", function()
 			telescope_builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") }
 		end, { desc = "Search Plugin Source Code" })
+
+		vim.keymap.set("n", "grr", function()
+			telescope_builtin.lsp_references(telescope_themes.get_cursor {
+				layout_config = {
+					width = 0.6,
+					height = 10,
+				},
+				previewer = false,
+				path_display = { "filename_first" },
+			})
+		end, { desc = "LSP References" })
 
 		vim.keymap.set("n", "<leader>fb", function()
 			telescope_builtin.buffers {
