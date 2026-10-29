@@ -2,7 +2,7 @@ local globals = require("globals")
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main",
+	branch = "main", -- Keep since version "nvim-treesitter" v0.10 is incompatible with nvim v0.12+
 	lazy = false,
 
 	-- On NixOS, prevent lazy.nvim from overriding/downloading over the Nix-provided plugin

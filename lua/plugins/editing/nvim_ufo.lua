@@ -1,11 +1,10 @@
 return {
 	"kevinhwang91/nvim-ufo",
 	dependencies = { "kevinhwang91/promise-async" },
-	branch = "main",
 	config = function()
 		---@diagnostic disable-next-line: missing-fields
 		require("ufo").setup {
-			provider_selector = function(bufnr, filetype, buftype)
+			provider_selector = function(filetype, buftype)
 				-- stylua: ignore start
 
 				-- Define filetypes/buftypes where you don't want folds
