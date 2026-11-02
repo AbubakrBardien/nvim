@@ -5,16 +5,9 @@ return {
 	branch = "main", -- Keep since version "nvim-treesitter" v0.10 is incompatible with nvim v0.12+
 	lazy = false,
 
-	-- On NixOS, prevent lazy.nvim from overriding/downloading over the Nix-provided plugin
-	dir = globals.nixos and vim.fn.isdirectory(vim.fn.expand("/nix/store")) == 1 and (function()
-		-- Find the nvim-treesitter store directory in runtimepath or nix store
-		for _, path in ipairs(vim.api.nvim_list_runtime_paths()) do
-			if path:match("nvim%-treesitter") or path:match("with%-all%-grammars") then
-				return path
-			end
-		end
-		return nil
-	end)() or nil,
+	-- On NixOS the plugin and parsers come from Nix
+	-- Lazy only runs init/config
+	virtual = globals.nixos or false,
 
 	build = function()
 		if not globals.nixos then
