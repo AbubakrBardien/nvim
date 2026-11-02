@@ -11,8 +11,6 @@ return {
 			"nvim-mini/mini.icons",
 		},
 
-		-- Can't use the "enabled = function() .. end," logic to enable plugin based on the filetype, even though the documentation says you can. Trust me, I've tried
-
 		config = function()
 			require("blink.cmp").setup {
 				appearance = {
@@ -82,7 +80,6 @@ return {
 					-- stylua: ignore start
 					trigger = {
 						show_on_keyword = false,           -- Disable automatically showing the completion menu while typing
-						show_on_trigger_character = false, -- Disable showing on trigger characters like '.' or ':'
 					},
 					-- stylua: ignore end
 				},
