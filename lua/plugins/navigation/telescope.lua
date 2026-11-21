@@ -70,17 +70,6 @@ return {
 			telescope_builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") }
 		end, { desc = "Search Plugin Source Code" })
 
-		vim.keymap.set("n", "grr", function()
-			telescope_builtin.lsp_references(telescope_themes.get_cursor {
-				layout_config = {
-					width = 0.6,
-					height = 10,
-				},
-				previewer = false,
-				path_display = { "filename_first" },
-			})
-		end, { desc = "LSP References" })
-
 		vim.keymap.set("n", "<leader>fb", function()
 			telescope_builtin.buffers {
 				attach_mappings = function(prompt_bufnr, map)

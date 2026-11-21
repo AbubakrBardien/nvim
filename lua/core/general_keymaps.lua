@@ -47,6 +47,29 @@ vim.keymap.set("n", "]q", ":cnext<CR>",     { desc = "Next quickfix item", silen
 vim.keymap.set("n", "[q", ":cprev<CR>",     { desc = "Previous quickfix item", silent = true })
 vim.keymap.set("n", "<leader>q", toggle_qf, { desc = "Toggle quickfix list" })
 
+-- stylua: ignore end
+
+-- Open Quickfix List references while keeping the cursor in place
+vim.keymap.set("n", "grr", function()
+	local win = vim.api.nvim_get_current_win()
+	vim.lsp.buf.references(nil, {
+		on_list = function(options)
+			vim.fn.setqflist({}, "r", {
+				items = options.items,
+				title = options.title,
+			})
+			vim.cmd("copen")
+			vim.schedule(function()
+				if vim.api.nvim_win_is_valid(win) then
+					vim.api.nvim_set_current_win(win)
+				end
+			end)
+		end,
+	})
+end, { desc = "LSP References (Quickfix)" })
+
+-- stylua: ignore start
+
 ---- Other ----
 vim.keymap.set("n", "<C-s>",     ":w<CR>",        { desc = "Save File" })
 vim.keymap.set("n", ";",         ":",             { desc = "Enter Command Mode" })
