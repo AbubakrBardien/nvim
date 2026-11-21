@@ -12,6 +12,7 @@ return {
 		local telescope_builtin = require("telescope.builtin")
 		local telescope_actions = require("telescope.actions")
 		local telescope_themes = require("telescope.themes")
+		local telescope_make_entry = require("telescope.make_entry")
 
 		local size_keymaps = { height = 24, width = 95 }
 		local size_fuzzy_find = { height = 0.65, width = 0.65 }
@@ -72,6 +73,14 @@ return {
 
 		vim.keymap.set("n", "<leader>fb", function()
 			telescope_builtin.buffers {
+				-- Only include Code Buffers in the list
+				entry_maker = function(entry)
+					if vim.bo[entry.bufnr].buftype ~= "" then
+						return nil
+					end
+					return telescope_make_entry.gen_from_buffer { bufnr_width = 3 }(entry)
+				end,
+
 				attach_mappings = function(prompt_bufnr, map)
 					-- Define the Delete action
 					local delete_buf = function()

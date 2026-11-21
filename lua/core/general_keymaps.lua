@@ -12,8 +12,37 @@ vim.keymap.set("n", "<A-w>",     ":sp<CR><C-w>j", { desc = "Vertical Split" })
 vim.keymap.set("n", "<A-e>",     ":q<CR>",        { desc = "Close split window", silent = true })
 
 ---- Buffer Navigation ----
-vim.keymap.set("n", "<Tab>",     ":bnext<CR>",     { desc = "Go to Next Buffer", silent = true })
-vim.keymap.set("n", "<S-Tab>",   ":bprevious<CR>", { desc = "Go to Previous Buffer", silent = true })
+
+-- Cycle through buffers, skipping Non-Code Buffers like terminals or the quickfix list
+local function cycle_buf(dir)
+  local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+  local count = #bufs
+  if count == 0 then
+    return
+  end
+
+  local cur = vim.api.nvim_get_current_buf()
+  local cur_idx = 1
+  for i, b in ipairs(bufs) do
+    if b.bufnr == cur then
+      cur_idx = i
+      break
+    end
+  end
+
+  for offset = 1, count do
+    local idx = ((cur_idx - 1 + offset * dir) % count) + 1
+    local target = bufs[idx].bufnr
+    local buftype = vim.bo[target].buftype
+    if buftype == "" or target == cur then
+      vim.api.nvim_set_current_buf(target)
+      return
+    end
+  end
+end
+
+vim.keymap.set("n", "<Tab>",   function() cycle_buf(1)  end, { desc = "Go to Next Code Buffer",     silent = true })
+vim.keymap.set("n", "<S-Tab>", function() cycle_buf(-1) end, { desc = "Go to Previous Code Buffer", silent = true })
 
 ---- Toggle Folding ----
 vim.keymap.set("n", "<CR>", "za", { desc = "Toggle Fold" })
