@@ -73,7 +73,7 @@ return {
 				theme = custom_theme,
 				always_divide_middle = false,
 
-				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy", "mason" },
+				ignore_focus = { "NvimTree", "TelescopePrompt", "lazy" },
 				disabled_filetypes = { "dashboard" },
 
 				section_separators = { left = "", right = "" },

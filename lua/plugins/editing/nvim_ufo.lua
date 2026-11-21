@@ -16,7 +16,6 @@ return {
 					"man",
 					"dashboard",
 					"lazy",            -- For lazy.nvim's plugin list
-					"mason",           -- For mason.nvim's UI
 					"gitcommit",       -- Often want to disable folding here
 				}
 				local no_fold_buftypes = {
