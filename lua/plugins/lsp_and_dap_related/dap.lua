@@ -11,26 +11,26 @@ return {
 
 		dapui.setup()
 
-			-- auto-generate the debug windows/elements
-			-- stylua: ignore start
-			dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
-			dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
-			dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-			dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+		-- auto-generate the debug windows/elements
+		-- stylua: ignore start
+		dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
+		dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
+		dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+		dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
 		-- stylua: ignore end
 
 		require("nvim-dap-virtual-text").setup {
 			virt_text_pos = "eol", -- end of line
 		}
 
-			------ Keymaps ------
+		------ Keymaps ------
 
-			-- stylua: ignore start
-			vim.keymap.set("n", "<leader>dc", dap.continue,  { desc = "DAP: Continue" })
-			vim.keymap.set("n", "<leader>n",  dap.step_over, { desc = "DAP: Step Over" })
-			vim.keymap.set("n", "<leader>db", dap.step_back, { desc = "DAP: Step Back" })
-			vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP: Step Into" })
-			vim.keymap.set("n", "<leader>do", dap.step_out,  { desc = "DAP: Step Out" })
+		-- stylua: ignore start
+		vim.keymap.set("n", "<leader>dc", dap.continue,  { desc = "DAP: Continue" })
+		vim.keymap.set("n", "<leader>n",  dap.step_over, { desc = "DAP: Step Over" })
+		vim.keymap.set("n", "<leader>db", dap.step_back, { desc = "DAP: Step Back" })
+		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP: Step Into" })
+		vim.keymap.set("n", "<leader>do", dap.step_out,  { desc = "DAP: Step Out" })
 		-- stylua: ignore end
 
 		vim.keymap.set("n", "<leader>dt", function()
@@ -57,14 +57,14 @@ return {
 			dapui.eval(nil, { enter = true })
 		end, { desc = "DAPUI: Eval var under cursor" })
 
-			---------------------
+		---------------------
 
-			-- Highlights
-			-- stylua: ignore start
-			vim.api.nvim_set_hl(0, "BreakpointSymbol",          { fg = "#de525d", bg = "NONE" })
-			vim.api.nvim_set_hl(0, "DapStopped",                { fg = "#6ed470", bg = "NONE" })
-			vim.api.nvim_set_hl(0, "NvimDapVirtualText",        { fg = "#4f4e5c" })
-			vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true })
+		-- Highlights
+		-- stylua: ignore start
+		vim.api.nvim_set_hl(0, "BreakpointSymbol",          { fg = "#de525d", bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DapStopped",                { fg = "#6ed470", bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NvimDapVirtualText",        { fg = "#4f4e5c" })
+		vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#616073", bold = true })
 		-- stylua: ignore end
 
 		vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "BreakpointSymbol" })
