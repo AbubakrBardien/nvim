@@ -1,37 +1,22 @@
-local globals = require("globals")
-
 return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main", -- Keep since version "nvim-treesitter" v0.10 is incompatible with nvim v0.12+
 	lazy = false,
-
-	-- On NixOS the plugin and parsers come from Nix
-	-- Lazy only runs init/config
-	virtual = globals.nixos or false,
-
-	build = function()
-		if not globals.nixos then
-			vim.cmd("TSUpdate")
-		end
-	end,
+	virtual = true, -- The plugin and parsers come from Nix. Lazy only runs init/config
 
 	init = function()
-		if globals.nixos then
-			-- Re-inject Nix store parser paths if lazy.nvim removed them from runtimepath
-			local nix_store_parsers = vim.fn.glob("/nix/store/*-vimplugin-nvim-treesitter-*/parser", true, true)
-			for _, parser_path in ipairs(nix_store_parsers) do
-				if vim.fn.isdirectory(parser_path) == 1 then
-					vim.opt.rtp:append(vim.fn.fnamemodify(parser_path, ":h"))
-				end
+		-- Re-inject Nix store parser paths if lazy.nvim removed them from runtimepath
+		local nix_store_parsers = vim.fn.glob("/nix/store/*-vimplugin-nvim-treesitter-*/parser", true, true)
+		for _, parser_path in ipairs(nix_store_parsers) do
+			if vim.fn.isdirectory(parser_path) == 1 then
+				vim.opt.rtp:append(vim.fn.fnamemodify(parser_path, ":h"))
 			end
 		end
 	end,
 
 	config = function()
-		local ts = require("nvim-treesitter")
-
 		vim.api.nvim_create_autocmd("FileType", {
-			group = vim.api.nvim_create_augroup("TSAutoInstallAndHighlight", { clear = true }),
+			group = vim.api.nvim_create_augroup("TSHighlight", { clear = true }),
 			callback = function(args)
 				local ft = vim.bo[args.buf].filetype
 				if ft == "" then
@@ -46,15 +31,6 @@ return {
 				local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
 				if ok and stats and stats.size > max_filesize then
 					return
-				end
-
-				-- Check if parser is already installed/loadable
-				local has_parser = pcall(vim.treesitter.language.add, lang)
-
-				-- On other OS: compile/install missing parsers dynamically
-				-- On NixOS: skip compilation; Nix handles parser installations
-				if not has_parser and not globals.nixos then
-					ts.install { lang }
 				end
 
 				-- Start native Neovim Tree-sitter highlighting
